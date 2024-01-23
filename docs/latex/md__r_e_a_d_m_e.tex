@@ -1,0 +1,40 @@
+\chapter{cc\+Pathway\+Search}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{ccPathwaySearch@{ccPathwaySearch}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Dependencies (subject to significant change)}{Dependencies (subject to significant change)}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item For tracking of both npm and future python dependencies, this project provides the resources for virtual environments.
+\item If you wish to use virtual environments, follow these steps...
+\begin{DoxyEnumerate}
+\item Create a python virtual environment\+: {\ttfamily python3 -\/m venv venvs/py\+\_\+venv}
+\item Activate the venv\+: {\ttfamily source venvs/py\+\_\+venv/bin/activate}
+\item Install requirements with pip\+: {\ttfamily pip install -\/r requirements.\+txt}
+\item To set up the node env, run this command\+: {\ttfamily nodeenv venvs/node\+\_\+venv -\/-\/force}
+\item Activate the node venv\+: {\ttfamily source venvs/node\+\_\+venv/bin/activate}
+\item Install node dependencies\+: {\ttfamily npm install}
+\end{DoxyEnumerate}
+\item You should be all set up!
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Technical Documentation (TBD)}{Technical Documentation (TBD)}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item The {\ttfamily docs/technical-\/documentation/} directory can be used for this projects long-\/form report, written in whichever format (or wherever) the doc lead $<$mark$>$Anna$<$/mark$>$ chooses
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Doxygen (TO-\/\+DO)}{Doxygen (TO-\/\+DO)}}\label{md__r_e_a_d_m_e_autotoc_md3}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Mac\+OS with Home\+Brew
+\begin{DoxyItemize}
+\item install with {\ttfamily brew install doxygen}
+\end{DoxyItemize}
+\item Otherwise
+\begin{DoxyItemize}
+\item \href{https://www.doxygen.nl/download.html}{\texttt{ Download here}}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Doc generation}{Doc generation}}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyItemize}
+\item To generate docs, run {\ttfamily doxygen docs/doxygen-\/config}
+\item {\ttfamily doxygen-\/config} is the configuration file that determines how doxygen will generate our docs. It\textquotesingle{}s located in the {\ttfamily docs/} directory. 
+\end{DoxyItemize}
