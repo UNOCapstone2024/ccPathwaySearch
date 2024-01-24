@@ -14,13 +14,8 @@
 ## Technical Documentation (TBD)
 - The `docs/technical-documentation/` directory can be used for this projects long-form report, written in whichever format (or wherever) the doc lead <mark>Anna</mark> chooses
 
-## Doxygen (TO-DO)
-### Installation
-- MacOS with HomeBrew
-    - install with `brew install doxygen`
-- Otherwise
-    - [Download here](https://www.doxygen.nl/download.html)
-
-### Doc generation
-- To generate docs, run `doxygen docs/doxygen-config`
-- `doxygen-config` is the configuration file that determines how doxygen will generate our docs. It's located in the `docs/` directory.
+## Doc generation
+- This project currently utilizes two separate doc generators: doxygen and jsdoc.
+- First install doxygen and jsdoc, then run `make -C docs/` to generate docs for both platforms.
+- The docs will generate into `docs/json-docs` and `docs/backend-docs`
+- To clean up docs easily, just run `make clean -C docs/`
