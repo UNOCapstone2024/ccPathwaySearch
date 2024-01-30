@@ -1,3 +1,5 @@
 node_venv/
 py_venv/
 node_modules/
+docs/*-docs/
+bootstrap-test/
