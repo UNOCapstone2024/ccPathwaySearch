@@ -3,3 +3,6 @@ py_venv/
 node_modules/
 docs/*-docs/
 bootstrap-test/
+
+# VSCode settings
+.vscode/
