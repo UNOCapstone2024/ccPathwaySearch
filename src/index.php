@@ -1100,68 +1100,74 @@
                         </a>
                       </li>
                     </template>
-                    <div class="p-sm-3 mb-4">
+                    <div class="d-flex p-sm-4 mb-4">
+                      <div class="hstack align-items-start">
+                        <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
+                          <form> <!-- Left side form start -->
+                            <div class="col-lg-30 pe-lg-25 form-item">
+                              <label for="areaid" class="form-label">Community/Tribal College</label>
+                              <select class="form-select" id="GuidedPathways">
+                                <option selected="true" value="All">All</option>
+                                <option value="Cental Community College">Central Community College</option>
+                                <option value="Iowa Western Community College">Iowa Western Community College</option>
+                                <option value="Little Priest Tribal College">Little Priest Tribal College</option>
+                                <option value="Metropolitan Community College">Metropolitan Community College</option>
+                                <option value="Mid-Plains Community College">Mid-Plains Community College</option>
+                                <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
+                                <option value="Northeast Community College">Northeast Community College</option>
+                                <option value="Southeast Community College">Southeast Community College</option>
+                                <option value="Wayne State College">Wayne State College</option>
+                                <option value="Western Nebraska Community College">Western Nebraska Community College</option>
+                              </select>
+                              <label for="areaid" class="form-label">Area of Study</label>
+                              <input class="form-control"
+                                      dir="auto"
+                                      id="search-mainGuidedPathways"
+                                      name="search-mainGuidedPathways"
+                                      oninput="TableGuidedPathways.search(event);"
+                                      placeholder="Select an Area of Study"
+                                      type="text">
+                              <label for="areaid" class="form-label">CC Degree</label>
+                              <input class="form-control"
+                                      dir="auto"
+                                      id="search-mainGuidedPathways"
+                                      name="search-mainGuidedPathways"
+                                      oninput="TableGuidedPathways.search(event);"
+                                      placeholder="Search Current Degree"
+                                      type="text">
+                              <input class="btn btn-light" type="submit" value="Search">
+                            </div>
 
-                      <div class="col-lg-5 pe-lg-25 form-item">
-                        <label for="areaid" class="form-label">Community/Tribal College</label>
-                        <select class="form-select" id="GuidedPathways">
-                          <div class="d-flex flex-column border-bottom border-2 pb-2 mx-3 mt-2 mb-4">
-                            <option selected="true" value="All">All</option>
-                            <option value="Cental Community College">Central Community College</option>
-                            <option value="Iowa Western Community College">Iowa Western Community College</option>
-                            <option value="Little Priest Tribal College">Little Priest Tribal College</option>
-                            <option value="Metropolitan Community College">Metropolitan Community College</option>
-                            <option value="Mid-Plains Community College">Mid-Plains Community College</option>
-                            <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
-                            <option value="Northeast Community College">Northeast Community College</option>
-                            <option value="Southeast Community College">Southeast Community College</option>
-                            <option value="Wayne State College">Wayne State College</option>
-                            <option value="Western Nebraska Community College">Western Nebraska Community College</option>
-                          </div>
-                        </select>
-                      </div> 
-                      <div class="col-lg-5 pe-lg-25 form-item">
-                        <label for="areaid" class="form-label">Area of Study</label>
-                        <form class="form-search" id="tstableGuidedPathways">
-                          <div class="d-flex flex-column border-bottom border-2 pb-2 mx-3 mt-2 mb-4">
-                            <input class="form-control"
-                                   dir="auto"
-                                   id="search-mainGuidedPathways"
-                                   name="search-mainGuidedPathways"
-                                   oninput="TableGuidedPathways.search(event);"
-                                   placeholder="Select an Area of Study"
-                                   type="text">
-                          </div>
-                        </form>
-                      </div> 
-                      <div class="col-lg-5 pe-lg-25 form-item">
-                        <label for="areaid" class="form-label">CC Degree</label>
-                        <form class="form-search" id="tstableGuidedPathways">
-                          <div class="d-flex flex-column border-bottom border-2 pb-2 mx-3 mt-2 mb-4">
-                            <input class="form-control"
-                                   dir="auto"
-                                   id="search-mainGuidedPathways"
-                                   name="search-mainGuidedPathways"
-                                   oninput="TableGuidedPathways.search(event);"
-                                   placeholder="Search Current Degree"
-                                   type="text">
-                          </div>
-                        </form>
-                      </div> 
-                      <div class="col-lg-5 pe-lg-25 form-item">
-                        <label for="areaid" class="form-label">UNO Degree</label>
-                        <form class="form-search" id="tstableGuidedPathways">
-                          <div class="d-flex flex-column border-bottom border-2 pb-2 mx-3 mt-2 mb-4">
-                            <input class="form-control"
-                                   dir="auto"
-                                   id="search-mainGuidedPathways"
-                                   name="search-mainGuidedPathways"
-                                   oninput="TableGuidedPathways.search(event);"
-                                   placeholder="Search UNO Degree"
-                                   type="text">
-                          </div>
-                        </form>
-                      </div>
+                          </form> <!-- Left side form end -->
+
+                          <div class="vr m-3 mt-5 mb-5"></div>
+
+                          <form class=me-3>
+                            <div class="col-lg-30 pe-lg-25 form-item">
+                              <label for="areaid" class="form-label">UNO Degree</label>
+                                <input class="form-control"
+                                        dir="auto"
+                                        id="search-mainGuidedPathways"
+                                        name="search-mainGuidedPathways"
+                                        oninput="TableGuidedPathways.search(event);"
+                                        placeholder="Search UNO Degree"
+                                        type="text">
+                                <input class="btn btn-light" type="submit" value="Search">
+                            </div>
+                          </form>
+
+                        <!-- </div>  -->
+                         
+                        
+                         
+                      </div> <!-- End of first row -->
+
+                      <!-- Line separator -->
+                      <div class="row">
+                        
+                      </div> <!-- End of second row -->
+                    </div>
+
                       <!-- Top Navigation -->
                       
 
