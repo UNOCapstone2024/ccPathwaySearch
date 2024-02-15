@@ -1108,7 +1108,7 @@
                               <label for="areaid" class="form-label">Community/Tribal College</label>
                               <select class="form-select" id="GuidedPathways-dropDown", name="GuidedPathways-dropDown">
                                 <option selected="true" value="All">All</option>
-                                <option value="Cental Community College">Central Community College</option>
+                                <option value="Central Community College">Central Community College</option>
                                 <option value="Iowa Western Community College">Iowa Western Community College</option>
                                 <option value="Little Priest Tribal College">Little Priest Tribal College</option>
                                 <option value="Metropolitan Community College">Metropolitan Community College</option>
