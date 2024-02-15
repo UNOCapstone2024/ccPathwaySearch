@@ -17,7 +17,7 @@ module.exports = {
   },
   output: {
     filename: 'ts-tables.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     library: {
       name: 'tables',
       type: 'umd',

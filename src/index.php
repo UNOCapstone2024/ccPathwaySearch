@@ -43,7 +43,7 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager --><noscript
+    <!-- Google Tag Manager<noscript
       ><iframe
         aria-hidden="true"
         height="0"
@@ -64,8 +64,8 @@
         j.src = "//www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-WXBWSJ");
-      // ]]>
-    </script>
+      // ]]> -->
+    <!-- </script> -->
     <!-- End Google Tag Manager -->
 
     <div
@@ -1103,10 +1103,10 @@
                     <div class="d-flex p-sm-4 mb-4">
                       <div class="hstack align-items-start">
                         <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
-                          <form> <!-- Left side form start -->
+                          <form id="guidedPathwaysLHS"> <!-- Left side form start -->
                             <div class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">Community/Tribal College</label>
-                              <select class="form-select" id="GuidedPathways">
+                              <select class="form-select" id="GuidedPathways-dropDown", name="GuidedPathways-dropDown">
                                 <option selected="true" value="All">All</option>
                                 <option value="Cental Community College">Central Community College</option>
                                 <option value="Iowa Western Community College">Iowa Western Community College</option>
@@ -1122,33 +1122,33 @@
                               <label for="areaid" class="form-label">Area of Study</label>
                               <input class="form-control"
                                       dir="auto"
-                                      id="search-mainGuidedPathways"
-                                      name="search-mainGuidedPathways"
+                                      id="search-mainGuidedPathways-areaOfStudy"
+                                      name="search-mainGuidedPathways-areaOfStudy"
                                       oninput="TableGuidedPathways.search(event);"
                                       placeholder="Select an Area of Study"
                                       type="text">
                               <label for="areaid" class="form-label">CC Degree</label>
                               <input class="form-control"
                                       dir="auto"
-                                      id="search-mainGuidedPathways"
-                                      name="search-mainGuidedPathways"
+                                      id="search-mainGuidedPathways-ccDegree"
+                                      name="search-mainGuidedPathways-ccDegree"
                                       oninput="TableGuidedPathways.search(event);"
                                       placeholder="Search Current Degree"
                                       type="text">
-                              <input class="btn btn-light" type="submit" value="Search">
+                              <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch('guidedPathwaysLHS')">
                             </div>
 
                           </form> <!-- Left side form end -->
 
                           <div class="vr m-3 mt-5 mb-5"></div>
 
-                          <form class=me-3>
+                          <form id="guidedPathwaysRHS" class=me-3>
                             <div class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">UNO Degree</label>
                                 <input class="form-control"
                                         dir="auto"
-                                        id="search-mainGuidedPathways"
-                                        name="search-mainGuidedPathways"
+                                        id="search-mainGuidedPathways-unoDegree"
+                                        name="search-mainGuidedPathways-unoDegree"
                                         oninput="TableGuidedPathways.search(event);"
                                         placeholder="Search UNO Degree"
                                         type="text">
@@ -1173,10 +1173,21 @@
 
                       
 
-
                       <!-- Table -->
                       <!-- Table Header -->
                       <div class="table-responsive my-2">
+                        <script src="./dist/ts-tables.js"></script>
+                        <table class="table table-bordered table-striped align-middle" id="GuidedPathways">
+                          <thead data-GuidedPathways="thead"></thead>
+
+                          <tbody data-GuidedPathways="tbody"></tbody>
+                        </table>
+                      </div>
+
+
+                      <!-- Table -->
+                      <!-- Table Header -->
+                      <!-- <div class="table-responsive my-2">
                         <script src="./dist/ts-tables.js"></script>
                         <div id="data-container">
                           
@@ -1188,7 +1199,7 @@
                           <thead data-GuidedPathways="thead"></thead>
                           <tbody data-GuidedPathways="tbody"></tbody>
                         </table>
-                      </div>
+                      </div> -->
 
 
 
@@ -1229,7 +1240,7 @@
                       </div>
                     </div>
                     <script src="./tstables/index.ts"></script>
-                    <script>
+                    <!-- <script>
                       const TableGuidedPathways = new tables.Table(
                         -1,
                         "data-GuidedPathways",
@@ -1239,6 +1250,15 @@
                       TableGuidedPathways.init(
                         "https://www.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/index.txt"
                       );
+                    </script> -->
+                    <script>
+                      const TableGuidedPathways = new tables.Table(
+                        -1,
+                        "data-GuidedPathways",
+                        "TableGuidedPathways"
+                      );
+
+                      TableGuidedPathways.initLocal("../data.txt");
                     </script>
                   </div>
 

@@ -28,5 +28,8 @@ type Templates = {
     header: HTMLTemplateElement
     pagination: HTMLTemplateElement
 }
+type FormStack = {
+    inputs: [HTMLInputElement]
+}
 
-export { CustomTable, TableRow, TableState, Elements, Templates }
+export { CustomTable, TableRow, TableState, Elements, Templates, FormStack }

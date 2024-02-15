@@ -4,5 +4,9 @@ node_modules/
 docs/*-docs/
 bootstrap-test/
 
+venvs/
+
+src/dist/
+
 # VSCode settings
 .vscode/

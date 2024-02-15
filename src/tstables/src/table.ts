@@ -3,7 +3,7 @@ import Paginate from './pagination'
 import Render from './render'
 import Search from './search'
 import Sort from './sort'
-import { CustomTable, TableState } from './types'
+import { CustomTable, TableState, FormStack } from './types'
 
 class Table {
     readonly attributeName: string
@@ -63,6 +63,41 @@ class Table {
         }
     }
 
+    public async initLocal(path: string): Promise<void> {
+        try {
+            fetch(path)
+                .then(response => response.text())
+                .then(text => {
+                    parse(text, {
+                        header: true,
+                        transformHeader: (h) => {
+                            return h.trim()
+                        },
+                        transform: (s) => {
+                            return s.trim()
+                        },
+                        complete: (results) => {
+                            if (results.data instanceof Array) {
+                                this.state.data = results.data as Record<string, string>[]
+                            }
+                            if (results.meta.fields) {
+                                this.state.headers = results.meta.fields
+                            } else {
+                                throw 'Headers not found, unable to sort data.'
+                            }
+                            if (this.state.sort.init > 0) {
+                                this.sort(this.state.headers[this.state.sort.init - 1])
+                            } else {
+                                this.display(this.state.data)
+                            }
+                        },
+                    })
+                })
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     public page = {
         reload: (e: Event) => {
             const target = e.target
@@ -108,10 +143,19 @@ class Table {
     }
 
     public search(e: Event): void {
-        const target = e.target
+        const target = e.target 
         if (target instanceof HTMLInputElement) {
             this.display(Search(this.state.data, target.value))
         }
+    }
+
+    public formSearch(formID: string): void {
+        const form = document.getElementById(formID) as HTMLFormElement | null;
+        if (form) {
+            const formData = new FormData(form)
+            console.log(formData)
+        }
+
     }
 
     private display(table: CustomTable): void {

@@ -26,7 +26,7 @@ function fetchAndDisplayData() {
 // Function to display parsed data on the web page
 function displayData(data) {
   // Assuming there's an element with an ID 'data-container' to hold the data
-  const container = document.getElementById('data-container');
+  const container = document.getElementById('GuidedPathways');
 
   // Clear previous content
   container.innerHTML = '';
