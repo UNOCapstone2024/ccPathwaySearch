@@ -3,7 +3,7 @@ import Paginate from './pagination'
 import Render from './render'
 import Search from './search'
 import Sort from './sort'
-import { CustomTable, TableState, FormStack } from './types'
+import { CustomTable, TableState } from './types'
 
 class Table {
     readonly attributeName: string
@@ -149,13 +149,23 @@ class Table {
         }
     }
 
-    public formSearch(formID: string): void {
+    public formSearch(e: Event, formID: string): void {
+        e.preventDefault()
         const form = document.getElementById(formID) as HTMLFormElement | null;
+        var tempTable = this.state.data
         if (form) {
             const formData = new FormData(form)
             console.log(formData)
+
+            for (var entry of formData.values()) {
+                if (entry != "" && entry != "All") {
+                    tempTable = Search(tempTable, entry.toString())
+                    this.display(tempTable)
+                }
+            }
         }
 
+        
     }
 
     private display(table: CustomTable): void {

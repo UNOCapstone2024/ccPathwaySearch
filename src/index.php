@@ -1124,7 +1124,7 @@
                                       dir="auto"
                                       id="search-mainGuidedPathways-areaOfStudy"
                                       name="search-mainGuidedPathways-areaOfStudy"
-                                      oninput="TableGuidedPathways.search(event);"
+                                      
                                       placeholder="Select an Area of Study"
                                       type="text">
                               <label for="areaid" class="form-label">CC Degree</label>
@@ -1132,10 +1132,10 @@
                                       dir="auto"
                                       id="search-mainGuidedPathways-ccDegree"
                                       name="search-mainGuidedPathways-ccDegree"
-                                      oninput="TableGuidedPathways.search(event);"
-                                      placeholder="Search Current Degree"
+                                      
+                                      placeholder="Search Community College Degree"
                                       type="text">
-                              <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch('guidedPathwaysLHS')">
+                              <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')">
                             </div>
 
                           </form> <!-- Left side form end -->
@@ -1152,7 +1152,7 @@
                                         oninput="TableGuidedPathways.search(event);"
                                         placeholder="Search UNO Degree"
                                         type="text">
-                                <input class="btn btn-light" type="submit" value="Search">
+                                <!-- <input class="btn btn-light" type="submit" value="Search"> -->
                             </div>
                           </form>
 
@@ -1218,14 +1218,14 @@
                             data-GuidedPathways="entries"
                             id="entries"
                           ></p>
-                          <!-- <label id="itemsPerPageGuidedPathways" class="form-label text-end m-0 me-2">results per page</label>
+                          <label id="itemsPerPageGuidedPathways" class="form-label text-end m-0 me-2">results per page</label>
                     <select name="itemsPerPageGuidedPathways" class="form-select form-select-sm py-2" aria-labelledby="itemsPerPageGuidedPathways" onchange="TableGuidedPathways.page.reload(event);">
                         <option value="10">10</option>
                         <option value="25" selected="selected">25</option>
                         <option value="50">50</option>
                         <option value="100">100</option>
                         <option value="-1">All</option>
-                    </select> -->
+                    </select>
                         </div>
                         <nav
                           aria-label="Pagination Navigation"
@@ -1239,18 +1239,8 @@
                         </nav>
                       </div>
                     </div>
-                    <script src="./tstables/index.ts"></script>
-                    <!-- <script>
-                      const TableGuidedPathways = new tables.Table(
-                        -1,
-                        "data-GuidedPathways",
-                        "TableGuidedPathways"
-                      );
-                      // Provide the source JSON file or PHP url that returns JSON
-                      TableGuidedPathways.init(
-                        "https://www.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/index.txt"
-                      );
-                    </script> -->
+                    <script src="./dist/ts-tables.js"></script>
+                    <!-- Change script to call .init() instead for production -->
                     <script>
                       const TableGuidedPathways = new tables.Table(
                         -1,
