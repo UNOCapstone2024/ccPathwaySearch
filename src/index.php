@@ -1124,7 +1124,7 @@
                                       dir="auto"
                                       id="search-mainGuidedPathways-areaOfStudy"
                                       name="search-mainGuidedPathways-areaOfStudy"
-                                      
+                                      oninput="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"
                                       placeholder="Select an Area of Study"
                                       type="text">
                               <label for="areaid" class="form-label">CC Degree</label>
@@ -1132,10 +1132,10 @@
                                       dir="auto"
                                       id="search-mainGuidedPathways-ccDegree"
                                       name="search-mainGuidedPathways-ccDegree"
-                                      
+                                      oninput="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"
                                       placeholder="Search Community College Degree"
                                       type="text">
-                              <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')">
+                              <!-- <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"> -->
                             </div>
 
                           </form> <!-- Left side form end -->
