@@ -133,6 +133,7 @@ class Table {
     }
 
     public sort(field: string): void {
+
         this.state.page.current = 1
         if (this.state.sort.field !== field) {
             this.state.sort = { direction: 'ascending', field: field, init: 0 }
@@ -150,10 +151,19 @@ class Table {
         }
     }
 
-    public formSearch(e: Event, formID: string, clear=false): CustomTable{
+    public formSearch(e: Event, formID: string, clear=false): Table{
         // e.preventDefault()
         const form = document.getElementById(formID) as HTMLFormElement | null;
-        var tempTable = this.state.data
+        var tempTable = new Table(
+            -1,
+            "data-GuidedPathways",
+            "TableGuidedPathways"
+          );
+          
+        tempTable.state.data = this.state.data
+        tempTable.state.headers = this.state.headers
+        tempTable.state.page = this.state.page
+        tempTable.state.sort = this.state.sort
 
         if (form) {
             if (clear == true){
@@ -172,11 +182,9 @@ class Table {
 
             for (var { index, entry } of Array.from(formData.values()).map((entry, index) => ({ index, entry}))) {
                 
-
-
                 if (entry != "" && entry != "All") {
-                    tempTable = Search(tempTable, entry.toString())
-                    this.display(tempTable)
+                    tempTable.state.data = Search(tempTable.state.data, entry.toString())
+                    this.display(tempTable.state.data)
                 }
                 else if (entry == "All" && index == 0)
                     this.display(this.state.data)
@@ -186,7 +194,7 @@ class Table {
         return tempTable
     }
 
-    public formDynamicSearch(e: Event, formIDs: string[], tempTable: CustomTable): void {
+    public formDynamicSearch(e: Event, formIDs: string[], tempTable: Table): Table {
         // e.preventDefault()
 
         const control = document.getElementById(formIDs[0]) as HTMLFormElement | null;
@@ -195,7 +203,7 @@ class Table {
 
             const dropdown = document.getElementById(formIDs[i]) as HTMLFormElement;
 
-            var opts = Recommend(tempTable, control?.value, dropdown.getAttribute("tableref"))
+            var opts = Recommend(tempTable.state.data, control?.value, dropdown.getAttribute("tableref"))
 
             dropdown.innerHTML  = '';
             const allOption = document.createElement('option')
@@ -210,7 +218,9 @@ class Table {
 
                 dropdown.add(option)
             }     
-        }    
+        }
+        
+        return tempTable
     }
 
     private display(table: CustomTable): void {
