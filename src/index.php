@@ -1106,7 +1106,10 @@
                           <form id="guidedPathwaysLHS"> <!-- Left side form start -->
                             <div class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">Community/Tribal College</label>
-                              <select class="form-select" id="GuidedPathways-dropDown", name="GuidedPathways-dropDown">
+                              <select class="form-select-hstack" 
+                                      id="GuidedPathways-dropDown"
+                                      name="GuidedPathways-dropDown" 
+                                      oninput="searchTable = TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(event, ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
                                 <option selected="true" value="All">All</option>
                                 <option value="Central Community College">Central Community College</option>
                                 <option value="Iowa Western Community College">Iowa Western Community College</option>
@@ -1119,22 +1122,27 @@
                                 <option value="Wayne State College">Wayne State College</option>
                                 <option value="Western Nebraska Community College">Western Nebraska Community College</option>
                               </select>
+
                               <label for="areaid" class="form-label">Area of Study</label>
-                              <input class="form-control"
-                                      dir="auto"
-                                      id="search-mainGuidedPathways-areaOfStudy"
+                              <select class="form-select-hstack" 
+                                      id="areaOfStudyDyn" 
                                       name="search-mainGuidedPathways-areaOfStudy"
-                                      oninput="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"
-                                      placeholder="Select an Area of Study"
-                                      type="text">
+                                      tableref="Major (Concentration)"
+                                      type="text"
+                                      oninput="searchTable = TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(event, ['areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
+                                <option selected="true" value="All">All</option>
+                              </select>
+
                               <label for="areaid" class="form-label">CC Degree</label>
-                              <input class="form-control"
-                                      dir="auto"
-                                      id="search-mainGuidedPathways-ccDegree"
+                              <select class="form-select-hstack" 
+                                      id="ccDegreeDyn"
                                       name="search-mainGuidedPathways-ccDegree"
+                                      tableref="Community College Degree"
                                       oninput="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"
-                                      placeholder="Search Community College Degree"
-                                      type="text">
+                                      placeholder="Epic Stoyle">
+                                <option selected="true" value="All">All</option>
+                              </select>
+                          
                               <!-- <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"> -->
                             </div>
 

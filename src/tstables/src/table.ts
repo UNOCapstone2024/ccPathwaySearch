@@ -2,6 +2,7 @@ import { parse } from 'papaparse'
 import Paginate from './pagination'
 import Render from './render'
 import Search from './search'
+import Recommend from './recommend'
 import Sort from './sort'
 import { CustomTable, TableState } from './types'
 
@@ -31,7 +32,7 @@ class Table {
         }
     }
 
-    public async init(url: string): Promise<void> {
+    public async init(url: string, displayOnStart = false): Promise<void> {
         try {
             parse(url, {
                 download: true,
@@ -53,7 +54,7 @@ class Table {
                     }
                     if (this.state.sort.init > 0) {
                         this.sort(this.state.headers[this.state.sort.init - 1])
-                    } else {
+                    } else if (displayOnStart) {
                         this.display(this.state.data)
                     }
                 },
@@ -63,7 +64,7 @@ class Table {
         }
     }
 
-    public async initLocal(path: string): Promise<void> {
+    public async initLocal(path: string, displayOnStart = false): Promise<void> {
         try {
             fetch(path)
                 .then(response => response.text())
@@ -87,7 +88,7 @@ class Table {
                             }
                             if (this.state.sort.init > 0) {
                                 this.sort(this.state.headers[this.state.sort.init - 1])
-                            } else {
+                            } else if (displayOnStart) {
                                 this.display(this.state.data)
                             }
                         },
@@ -149,23 +150,67 @@ class Table {
         }
     }
 
-    public formSearch(e: Event, formID: string): void {
-        e.preventDefault()
+    public formSearch(e: Event, formID: string, clear=false): CustomTable{
+        // e.preventDefault()
         const form = document.getElementById(formID) as HTMLFormElement | null;
         var tempTable = this.state.data
+
         if (form) {
+            if (clear == true){
+                const elements = form.querySelectorAll('select')
+
+                elements.forEach((element, index) => {
+                    if (index != 0) {
+                        element.innerHTML = ''
+                        this.display(this.state.data)
+                    }
+                })
+            }
+
             const formData = new FormData(form)
             console.log(formData)
 
-            for (var entry of formData.values()) {
+            for (var { index, entry } of Array.from(formData.values()).map((entry, index) => ({ index, entry}))) {
+                
+
+
                 if (entry != "" && entry != "All") {
                     tempTable = Search(tempTable, entry.toString())
                     this.display(tempTable)
                 }
+                else if (entry == "All" && index == 0)
+                    this.display(this.state.data)
             }
         }
 
-        
+        return tempTable
+    }
+
+    public formDynamicSearch(e: Event, formIDs: string[], tempTable: CustomTable): void {
+        // e.preventDefault()
+
+        const control = document.getElementById(formIDs[0]) as HTMLFormElement | null;
+
+        for (let i = 1; i < formIDs.length; i++) {
+
+            const dropdown = document.getElementById(formIDs[i]) as HTMLFormElement;
+
+            var opts = Recommend(tempTable, control?.value, dropdown.getAttribute("tableref"))
+
+            dropdown.innerHTML  = '';
+            const allOption = document.createElement('option')
+            allOption.text = "All"
+            allOption.value = "All"
+            dropdown.add(allOption)
+            
+            for (let j = 0; j < opts.length; j++) {
+                const option = document.createElement('option')
+                option.text = opts[j]
+                option.value = opts[j]
+
+                dropdown.add(option)
+            }     
+        }    
     }
 
     private display(table: CustomTable): void {

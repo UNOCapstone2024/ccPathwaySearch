@@ -10351,6 +10351,28 @@ textarea.form-control-lg {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
 
+.form-select-hstack {
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23333%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
+    display: block;
+    min-width: 300px;
+    max-width: 300px;
+    padding: .3rem 2.55rem .3rem .85rem;
+    font-size: calc(0.7975rem + 0.27vw);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--bs-body-color);
+    appearance: none;
+    background-color: #f2f2f2;
+    background-image: var(--bs-form-select-bg-img),var(--bs-form-select-bg-icon, none);
+    background-repeat: no-repeat;
+    background-position: right .85rem center;
+    background-size: 16px 12px;
+    border: var(--bs-border-width) solid #f2f2f2;
+    border-radius: var(--bs-border-radius);
+    box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
 @media(min-width: 1200px) {
     .form-select {
         font-size:1rem
