@@ -50,3 +50,12 @@ php -S 127.0.0.1:8000
 Include a section called, "Release notes" - explain what is working in this submission (add explanation if this is not consistent with the milestone as described in the Project Plan)
 
 The project is accurately displaying guided pathways based on the user's selections as we set out to do for milestone one. There are a few issues with sorting the table where the table will lose it's state upon trying to sort or paginate.
+
+## Alternative branches
+- feature-static-webpage
+    - Branch was used as a testing ground for figuring out the structure of the site, work was taken from here and used in this branch.
+    - Code will not be used at this time
+- develop
+    - Used as a merge point for all feature-* branches
+- main
+    - Used for completed, fully functional versions of the site
