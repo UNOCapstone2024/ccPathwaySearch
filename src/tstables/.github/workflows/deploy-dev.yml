@@ -1,0 +1,58 @@
+name: Deploy to CMS-DEV
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    branches: ["**"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to CMS-DEV
+        env:
+          CMS_DEV: ${{ secrets.CMS_DEV }}
+        run: |
+          jq -n --arg text "$(cat dist/ts-tables.js)" \
+          --arg apiKey $CMS_DEV \
+          '{"authentication": { "apiKey": $apiKey },"asset": {"file": {"id": "a84e43030a000021442ce5f1199bae30","parentFolderId": "efbc844089300193077e8a5c3eaf5272","siteName": "www","text": $text}}}' \
+          | curl --request POST \
+          --header "Content-Type: application/json" \
+          --data @- \
+          https://unomaha-dev.cascadecms.com/api/v1/edit
+          jq -n --arg apiKey $CMS_DEV \
+          '{"authentication": { "apiKey": $apiKey }}' \
+          | curl --request POST \
+          --header "Content-Type: application/json" \
+          --data @- \
+          https://unomaha-dev.cascadecms.com/api/v1/publish/file/a84e43030a000021442ce5f1199bae30
