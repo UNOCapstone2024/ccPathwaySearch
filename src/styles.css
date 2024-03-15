@@ -10,6 +10,19 @@
     src: url(../fonts/bootstrap-icons.woff2) format("woff2"), url(../fonts/bootstrap-icons.woff) format("woff");
 }
 
+#search-anchor {
+    display:flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    #search-anchor {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
 .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
     display: inline-block;
     font-family: bootstrap-icons !important;
@@ -8595,7 +8608,9 @@ progress {
     padding-right: calc(var(--bs-gutter-x)*.5);
     padding-left: calc(var(--bs-gutter-x)*.5);
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
 }
 
 @media(min-width: 576px) {
@@ -24711,7 +24726,7 @@ a:not([role=navigation]):target::before {
 }
 
 #main-copy {
-    flex: 1 0 0%
+    flex: 1 0 0%;
 }
 
 #main-copy img {

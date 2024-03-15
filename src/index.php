@@ -1101,7 +1101,7 @@
                       </li>
                     </template>
                     <div class="d-flex p-sm-4 mb-4">
-                      <div class="hstack align-items-start">
+                      <div class="align-items-start">
                         <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
                           <form id="guidedPathwaysLHS"> <!-- Left side form start -->
                             <div class="col-lg-30 pe-lg-25 form-item">
