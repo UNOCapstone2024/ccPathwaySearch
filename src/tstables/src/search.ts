@@ -12,4 +12,6 @@ const Search = (table: CustomTable, query: string): CustomTable => {
     return results
 }
 
+
+
 export default Search
