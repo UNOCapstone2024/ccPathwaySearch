@@ -1,4 +1,9 @@
+
 <!DOCTYPE html>
+<!-- load runtime configuration from config.php-->
+<?php
+    $configs = include('config.php');
+  ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
@@ -19,7 +24,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#c12626" />
   <meta name="msapplication-TileColor" content="#c12626" />
   <meta name="theme-color" content="#ffffff" />
-  <link href="../../../../../_files/uno-template/current/css/uno-template.css?dt=1710568858" rel="stylesheet" />
+  <link href="<?php echo $configs['stylesheetPath']?>" rel="stylesheet" />
 
   <script type="text/javascript">
     // <![CDATA[
@@ -150,7 +155,7 @@
           <nav aria-label="Main menu" class="navbar navbar-expand-md" id="nav-primary-wrap">
             <div class="navbar-collapse collapse" id="nav-primary">
               <!-- MOBILE SUPPLEMENTAL NAV -->
-              <nav id="nav-supplemental-mobile">
+              <nav nitd="nav-supplemental-mobile">
                 <a class="btn-apply" href="//www.unomaha.edu/admissions/apply/index.php">APPLY</a>
                 <a href="//www.unomaha.edu/my/index.php">MY UNO</a>
                 <a
@@ -715,7 +720,7 @@
                   <!-- Table -->
                   <!-- Table Header -->
                   <div class="table-responsive my-2">
-                    <script src="../../../../../_files/js/ts-tables.js"></script>
+                    <script src="<?php echo $configs['jspath']?>"></script>
                     <table class="table table-bordered table-striped align-middle" id="GuidedPathways">
                       <thead data-GuidedPathways="thead"></thead>
 
@@ -723,27 +728,9 @@
                     </table>
                   </div>
 
-
-                  <!-- Table -->
-                  <!-- Table Header -->
-                  <!-- <div class="table-responsive my-2">
-                        <script src="./dist/ts-tables.js"></script>
-                        <div id="data-container">
-                          
-                        </div>
-                        <table
-                          class="table table-bordered table-striped align-middle"
-                          id="GuidedPathways"
-                        >
-                          <thead data-GuidedPathways="thead"></thead>
-                          <tbody data-GuidedPathways="tbody"></tbody>
-                        </table>
-                      </div> -->
-
-
-
-
-
+                      <div
+                        class="d-sm-flex justify-content-center my-3"
+                      >
 
                   <!-- Bottom navigation -->
                   <div class="d-lg-flex flex-wrap align-items-center justify-content-between">
@@ -766,12 +753,12 @@
                     </nav>
                   </div>
                 </div>
-                <script src="../../../../../_files/js/ts-tables.js"></script>
+                <script src="<?php echo $configs['jspath']?>"></script>
                 <!-- Change script to call .init() instead for production -->
                 <script>
                   const TableGuidedPathways = new tables.Table(-1, 'data-GuidedPathways', 'TableGuidedPathways');
                   // Provide the source JSON file or PHP url that returns JSON
-                  TableGuidedPathways.init('https://www.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/index.txt');
+                  TableGuidedPathways.init('<?php echo $configs['initPath']?>');
                 </script>
               </div>
 

@@ -64,41 +64,6 @@ class Table {
         }
     }
 
-    public async initLocal(path: string, displayOnStart = false): Promise<void> {
-        try {
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    parse(text, {
-                        header: true,
-                        transformHeader: (h) => {
-                            return h.trim()
-                        },
-                        transform: (s) => {
-                            return s.trim()
-                        },
-                        complete: (results) => {
-                            if (results.data instanceof Array) {
-                                this.state.data = results.data as Record<string, string>[]
-                            }
-                            if (results.meta.fields) {
-                                this.state.headers = results.meta.fields
-                            } else {
-                                throw 'Headers not found, unable to sort data.'
-                            }
-                            if (this.state.sort.init > 0) {
-                                this.sort(this.state.headers[this.state.sort.init - 1])
-                            } else if (displayOnStart) {
-                                this.display(this.state.data)
-                            }
-                        },
-                    })
-                })
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
     public page = {
         reload: (e: Event) => {
             const target = e.target
