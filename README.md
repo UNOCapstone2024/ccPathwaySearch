@@ -17,6 +17,9 @@ The TypeScript modules are responsible for generating and filtering the results 
 - For those unfamiliar with webpack, you will need to install it and simply run...
 `webpack` within the `tstables` directory. This will generate the JS modules from tstables and put them in `src/dist/`.
 
+### Configuration
+- To configure the paths for local development, navigate to the `src/config.php` and verify that `$mode` is set to 1. Set to 0 for production deployment.
+
 #### Development Server
 - To fire up a development server, follow the webpack steps above then install php.
 - Once php is installed, navigate to the `src/` directory and run: 

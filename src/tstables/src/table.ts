@@ -116,8 +116,13 @@ class Table {
         }
     }
 
-    public formSearch(e: Event, formID: string, clear=false): Table{
-        // e.preventDefault()
+    public formSearch(formID: string, clear=false): Table{
+        /**
+         * Searches through a Table object with multiple search criteria
+         * @param formID the id of the form that contains search fields
+         * @param clear on true will clear all of the form elements to a blank state
+         * @returns a temporary Table object that is filtered on search criteria
+         */
         const form = document.getElementById(formID) as HTMLFormElement | null;
         var tempTable = new Table(
             -1,
@@ -125,6 +130,7 @@ class Table {
             "TableGuidedPathways"
           );
           
+        // create tempTable deep copy of this table
         tempTable.state.data = this.state.data
         tempTable.state.headers = this.state.headers
         tempTable.state.page = this.state.page
@@ -159,14 +165,17 @@ class Table {
         return tempTable
     }
 
-    public formDynamicSearch(e: Event, formIDs: string[], tempTable: Table): Table {
-        // e.preventDefault()
+    public formDynamicSearch(selectIDs: string[], tempTable: Table): Table {
+        /**
+         * Performs a search on a given table and dynamically produces dropdown contents
+         * @param selectIDs list of select ids that will be populated with dynamic contents
+         * @param tempTable the temporary Table object to be used
+         */
+        const control = document.getElementById(selectIDs[0]) as HTMLFormElement | null;
 
-        const control = document.getElementById(formIDs[0]) as HTMLFormElement | null;
+        for (let i = 1; i < selectIDs.length; i++) {
 
-        for (let i = 1; i < formIDs.length; i++) {
-
-            const dropdown = document.getElementById(formIDs[i]) as HTMLFormElement;
+            const dropdown = document.getElementById(selectIDs[i]) as HTMLFormElement;
 
             var opts = Recommend(tempTable.state.data, control?.value, dropdown.getAttribute("tableref"))
 
