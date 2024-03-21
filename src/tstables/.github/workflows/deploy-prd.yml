@@ -1,0 +1,34 @@
+name: Deploy to CMS-PRD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to CMS-PRD
+        env:
+          CMS_PRD: ${{ secrets.CMS_PRD }}
+        run: |
+          jq -n --arg text "$(cat dist/ts-tables.js)" \
+          --arg apiKey $CMS_PRD \
+          '{"authentication": { "apiKey": $apiKey },"asset": {"file": {"id": "619993660a0000d07db42ffb9acaa121","parentFolderId": "efbc844089300193077e8a5c3eaf5272","siteName": "www","text": $text}}}' \
+          | curl --request POST \
+          --header "Content-Type: application/json" \
+          --data @- \
+          https://unomaha.cascadecms.com/api/v1/edit
+          jq -n --arg apiKey $CMS_PRD \
+          '{"authentication": { "apiKey": $apiKey }}' \
+          | curl --request POST \
+          --header "Content-Type: application/json" \
+          --data @- \
+          https://unomaha.cascadecms.com/api/v1/publish/file/619993660a0000d07db42ffb9acaa121
