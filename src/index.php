@@ -624,57 +624,74 @@
                   Omaha (UNO) and Community Colleges.
                 </p>
 
-                <div class="card shadow p-4 p-sm-2 mx-auto my-4" id="search-anchor">
-                  <template data-GuidedPathways="rowTemplate">
-                    <tr></tr>
-                  </template>
-                  <template data-GuidedPathways="itemTemplate">
-                    <td></td>
-                  </template>
-                  <template data-GuidedPathways="colTemplate">
-                    <th class="align-middle" scope="col" style="cursor: pointer" tabindex="0">
-                      <div class="d-flex align-items-center">
-                        <span></span>
-                        <i class="bi bi-caret-up ms-2"></i>
-                        <i class="bi bi-caret-down ms-n1"></i>
-                      </div>
-                    </th>
-                  </template>
-                  <template data-GuidedPathways="paginationTemplate">
-                    <li class="page-item">
-                      <a class="page-link" role="button" style="margin-left: -1px; border-radius: 0" tabindex="0">
-                        <span></span>
-                      </a>
-                    </li>
-                  </template>
-                  <div class="d-flex p-sm-4 mb-4">
-                    <div class="hstack align-items-start">
-                      <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
-                      <form id="guidedPathwaysLHS"> <!-- Left side form start -->
-                        <div class="col-lg-30 pe-lg-25 form-item">
-                          <label for="areaid" class="form-label">Community/Tribal College</label>
-                          <select class="form-select-hstack" id="GuidedPathways-dropDown" name="GuidedPathways-dropDown"
-                            oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
-                            <option selected="true" value="All">All</option>
-                            <option value="Central Community College">Central Community College</option>
-                            <option value="Iowa Western Community College">Iowa Western Community College</option>
-                            <option value="Little Priest Tribal College">Little Priest Tribal College</option>
-                            <option value="Metropolitan Community College">Metropolitan Community College</option>
-                            <option value="Mid-Plains Community College">Mid-Plains Community College</option>
-                            <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
-                            <option value="Northeast Community College">Northeast Community College</option>
-                            <option value="Southeast Community College">Southeast Community College</option>
-                            <option value="Wayne State College">Wayne State College</option>
-                            <option value="Western Nebraska Community College">Western Nebraska Community College
-                            </option>
-                          </select>
-
-                          <label for="areaid" class="form-label">Area of Study</label>
-                          <select class="form-select-hstack" id="areaOfStudyDyn"
-                            name="search-mainGuidedPathways-areaOfStudy" tableref="Major (Concentration)" type="text"
-                            oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
-                            <option selected="true" value="All">All</option>
-                          </select>
+                  <div
+                    class="card shadow p-4 p-sm-2 mx-auto my-4"
+                    id="search-anchor"
+                  >
+                    <template data-GuidedPathways="rowTemplate">
+                      <tr></tr>
+                    </template>
+                    <template data-GuidedPathways="itemTemplate">
+                      <td></td>
+                    </template>
+                    <template data-GuidedPathways="colTemplate">
+                      <th
+                        class="align-middle"
+                        scope="col"
+                        style="cursor: pointer"
+                        tabindex="0"
+                      >
+                        <div class="d-flex align-items-center">
+                          <span></span>
+                          <i class="bi bi-caret-up ms-2"></i>
+                          <i class="bi bi-caret-down ms-n1"></i>
+                        </div>
+                      </th>
+                    </template>
+                    <template data-GuidedPathways="paginationTemplate">
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          role="button"
+                          style="margin-left: -1px; border-radius: 0"
+                          tabindex="0"
+                        >
+                          <span></span>
+                        </a>
+                      </li>
+                    </template>
+                    <div class="d-flex p-sm-4 mb-4">
+                      <div class="hstack align-items-start">
+                        <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
+                          <form id="guidedPathwaysLHS"> <!-- Left side form start -->
+                            <div id = "LHS_div" class="col-lg-30 pe-lg-25 form-item">
+                              <label for="areaid" class="form-label">Community/Tribal College</label>
+                              <select class="form-select-hstack" 
+                                      id="GuidedPathways-dropDown"
+                                      name="GuidedPathways-dropDown" 
+                                      oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); tables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                                <option selected="true" value="All">All</option>
+                                <option value="Central Community College">Central Community College</option>
+                                <option value="Iowa Western Community College">Iowa Western Community College</option>
+                                <option value="Little Priest Tribal College">Little Priest Tribal College</option>
+                                <option value="Metropolitan Community College">Metropolitan Community College</option>
+                                <option value="Mid-Plains Community College">Mid-Plains Community College</option>
+                                <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
+                                <option value="Northeast Community College">Northeast Community College</option>
+                                <option value="Southeast Community College">Southeast Community College</option>
+                                <option value="Wayne State College">Wayne State College</option>
+                                <option value="Western Nebraska Community College">Western Nebraska Community College</option>
+                              </select>
+                              
+                              <label for="areaid" class="form-label">Area of Study</label>
+                              <select class="form-select-hstack" 
+                                      id="areaOfStudyDyn" 
+                                      name="search-mainGuidedPathways-areaOfStudy"
+                                      tableref="Major (Concentration)"
+                                      type="text"
+                                      oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
+                                <option selected="true" value="All">All</option>
+                              </select>
 
                           <label for="areaid" class="form-label">CC Degree</label>
                           <select class="form-select-hstack" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree"
@@ -689,17 +706,23 @@
 
                       </form> <!-- Left side form end -->
 
-                      <div class="vr m-3 mt-5 mb-5"></div>
+                          <div class="vr m-3 mt-5 mb-5"></div>
+                        
+                          <form id="guidedPathwaysRHS" class=me-3>
+                            <div id = "RHS_Div" class="col-lg-30 pe-lg-25 form-item">
+                              <label for="areaid" class="form-label">UNO Degree</label>
+                              <script src="./src/checkTextboxInput"></script>
+                                <input class="form-control"
+                                        dir="auto"
+                                        id="search-mainGuidedPathways-unoDegree"
+                                        name="search-mainGuidedPathways-unoDegree"
+                                        oninput="TableGuidedPathways.search(event); tables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])"
+                                        placeholder="Search UNO Degree"
+                                        type="text">
 
-                      <form id="guidedPathwaysRHS" class=me-3>
-                        <div class="col-lg-30 pe-lg-25 form-item">
-                          <label for="areaid" class="form-label">UNO Degree</label>
-                          <input class="form-control" dir="auto" id="search-mainGuidedPathways-unoDegree"
-                            name="search-mainGuidedPathways-unoDegree" oninput="TableGuidedPathways.search(event);"
-                            placeholder="Search UNO Degree" type="text">
-                          <!-- <input class="btn btn-light" type="submit" value="Search"> -->
-                        </div>
-                      </form>
+                                <!-- <input class="btn btn-light" type="submit" value="Search"> -->
+                            </div>
+                          </form>
 
                       <!-- </div>  -->
 
