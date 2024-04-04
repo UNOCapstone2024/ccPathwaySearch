@@ -198,7 +198,7 @@ class Table {
         return tempTable
     }
 
-    private display(table: CustomTable): void {
+    public display(table: CustomTable): void {
         this.state.page.last = Math.ceil(table.length / Number(this.state.page.per))
         if (this.state.page.current > this.state.page.last || this.state.page.current <= 0) {
             this.state.page.current = 1

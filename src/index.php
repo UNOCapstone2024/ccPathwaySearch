@@ -669,7 +669,7 @@
                               <select class="form-select-hstack" 
                                       id="GuidedPathways-dropDown"
                                       name="GuidedPathways-dropDown" 
-                                      oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); tables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                                      oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
                                 <option selected="true" value="All">All</option>
                                 <option value="Central Community College">Central Community College</option>
                                 <option value="Iowa Western Community College">Iowa Western Community College</option>
@@ -716,7 +716,7 @@
                                         dir="auto"
                                         id="search-mainGuidedPathways-unoDegree"
                                         name="search-mainGuidedPathways-unoDegree"
-                                        oninput="TableGuidedPathways.search(event); tables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])"
+                                        oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])"
                                         placeholder="Search UNO Degree"
                                         type="text">
 
@@ -777,10 +777,11 @@
                     </nav>
                   </div>
                 </div>
-                <script src="<?php echo $configs['jspath']?>"></script>
+                <!-- <script src="<?php echo $configs['jspath']?>"></script> -->
+                <script src="./dist/ts-tables-custom.js"></script>
                 <!-- Change script to call .init() instead for production -->
                 <script>
-                  const TableGuidedPathways = new tables.Table(-1, 'data-GuidedPathways', 'TableGuidedPathways');
+                  const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways');
                   // Provide the source JSON file or PHP url that returns JSON
                   TableGuidedPathways.init('<?php echo $configs['initPath']?>');
                 </script>
