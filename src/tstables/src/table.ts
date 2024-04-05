@@ -10,12 +10,14 @@ import { CustomTable, TableState } from './types'
 class Table {
     readonly attributeName: string
     readonly classInstance: string
+    displayOnStart: Boolean
     render: Render
     state: TableState
 
-    constructor(perPage = 10, attributeName = 'data-table', classInstance = 'Table', sortBy = 0) {
+    constructor(perPage = 10, attributeName = 'data-table', classInstance = 'Table', sortBy = 0, displayOnStart = true) {
         this.attributeName = attributeName
         this.classInstance = classInstance
+        this.displayOnStart = displayOnStart
         this.render = new Render(this.attributeName, this.classInstance)
         this.state = {
             data: [],
@@ -33,7 +35,7 @@ class Table {
         }
     }
 
-    public async init(url: string, displayOnStart = false): Promise<void> {
+    public async init(url: string): Promise<void> {
         try {
             parse(url, {
                 download: true,
@@ -55,7 +57,7 @@ class Table {
                     }
                     if (this.state.sort.init > 0) {
                         this.sort(this.state.headers[this.state.sort.init - 1])
-                    } else if (displayOnStart) {
+                    } else if (this.displayOnStart) {
                         this.display(this.state.data)
                     }
                 },

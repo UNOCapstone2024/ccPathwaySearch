@@ -780,7 +780,7 @@
                 <script src="./dist/ts-tables-custom.js"></script>
                 <!-- Change script to call .init() instead for production -->
                 <script>
-                  const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways');
+                  const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', );
                   // Provide the source JSON file or PHP url that returns JSON
                   TableGuidedPathways.init('<?php echo $configs['initPath']?>');
                 </script>
