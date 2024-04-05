@@ -156,11 +156,10 @@
           <nav aria-label="Main menu" class="navbar navbar-expand-md" id="nav-primary-wrap">
             <div class="navbar-collapse collapse" id="nav-primary">
               <!-- MOBILE SUPPLEMENTAL NAV -->
-              <nav nitd="nav-supplemental-mobile">
+              <nav id="nav-supplemental-mobile">
                 <a class="btn-apply" href="//www.unomaha.edu/admissions/apply/index.php">APPLY</a>
                 <a href="//www.unomaha.edu/my/index.php">MY UNO</a>
-                <a
-                  href="//www.unomaha.edu/search/index.php?collection=unomaha-search&amp;form=partial_html&amp;f.Tabs%7Cunomaha-people-web=People&amp;query=">DIRECTORY</a>
+                <a href="//www.unomaha.edu/search/employee-directory.php">DIRECTORY</a>
               </nav>
               <div id="search-mobile">
                 <form action="/search/index.php" autocomplete="off" id="search-head-mobile-form" method="get">
@@ -666,7 +665,7 @@
                           <form id="guidedPathwaysLHS"> <!-- Left side form start -->
                             <div id = "LHS_div" class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">Community/Tribal College</label>
-                              <select class="form-select-hstack" 
+                              <select class="form-select" 
                                       id="GuidedPathways-dropDown"
                                       name="GuidedPathways-dropDown" 
                                       oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
@@ -684,7 +683,7 @@
                               </select>
                               
                               <label for="areaid" class="form-label">Area of Study</label>
-                              <select class="form-select-hstack" 
+                              <select class="form-select" 
                                       id="areaOfStudyDyn" 
                                       name="search-mainGuidedPathways-areaOfStudy"
                                       tableref="Major (Concentration)"
@@ -694,7 +693,7 @@
                               </select>
 
                           <label for="areaid" class="form-label">CC Degree</label>
-                          <select class="form-select-hstack" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree"
+                          <select class="form-select" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree"
                             tableref="Community College Degree"
                             oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS')"
                             placeholder="Epic Stoyle">
@@ -1154,6 +1153,72 @@
               <li>
                 <a href="https://www.unomaha.edu/accessibility-statement-assistance.php">Accessibility</a>
               </li>
+              <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+                  <symbol id="circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                  </symbol>
+                  <symbol id="moon-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                  </symbol>
+                  <symbol id="sun-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                  </symbol>
+                  <symbol id="check2" viewBox="0 0 16 16">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                  </symbol>
+                </svg>
+
+                <div class="dropdown" id="mode-toggle">
+                  <button id="bd-theme" class="btn btn-secondary dropdown-toggle align-items-center" type="button"
+                    data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"
+                    aria-label="Toggle theme (light)">
+                    <svg class="bi theme-icon-active">
+                      <use href="#sun-fill"></use>
+                    </svg>
+                    <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+                  </button>
+                  <ul class="dropdown-menu p-0 mt-n2" aria-labelledby="bd-theme-text">
+                    <li>
+                      <button aria-pressed="true" class="dropdown-item d-flex align-items-center active"
+                        data-bs-theme-value="light" type="button">
+                        <svg class="bi me-2 opacity-50 theme-icon">
+                          <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none">
+                          <use href="#check2"></use>
+                        </svg>
+                      </button>
+                    </li>
+                    <li>
+                      <button aria-pressed="false" class="dropdown-item d-flex align-items-center"
+                        data-bs-theme-value="dark" type="button">
+                        <svg class="bi me-2 opacity-50 theme-icon">
+                          <use href="#moon-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none">
+                          <use href="#check2"></use>
+                        </svg>
+                      </button>
+                    </li>
+                    <li>
+                      <button aria-pressed="false" class="dropdown-item d-flex align-items-center"
+                        data-bs-theme-value="auto" type="button">
+                        <svg class="bi me-2 opacity-50 theme-icon">
+                          <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none">
+                          <use href="#check2"></use>
+                        </svg>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
             </ol>
           </div>
           <div class="col-sm-12 col-md-4">
