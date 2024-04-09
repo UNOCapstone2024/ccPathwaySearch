@@ -25,6 +25,7 @@
   <meta name="msapplication-TileColor" content="#c12626" />
   <meta name="theme-color" content="#ffffff" />
   <link href="<?php echo $configs['stylesheetPath']?>" rel="stylesheet" />
+  <link href="./extra.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <script type="text/javascript">
@@ -665,7 +666,7 @@
                           <form id="guidedPathwaysLHS"> <!-- Left side form start -->
                             <div id = "LHS_div" class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">Community/Tribal College</label>
-                              <select class="form-select" 
+                              <select class="form-select-gp" 
                                       id="GuidedPathways-dropDown"
                                       name="GuidedPathways-dropDown" 
                                       oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
@@ -683,7 +684,7 @@
                               </select>
                               
                               <label for="areaid" class="form-label">Area of Study</label>
-                              <select class="form-select" 
+                              <select class="form-select-gp" 
                                       id="areaOfStudyDyn" 
                                       name="search-mainGuidedPathways-areaOfStudy"
                                       tableref="Major (Concentration)"
@@ -693,7 +694,7 @@
                               </select>
 
                           <label for="areaid" class="form-label">CC Degree</label>
-                          <select class="form-select" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree"
+                          <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree"
                             tableref="Community College Degree"
                             oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS')"
                             placeholder="Epic Stoyle">
@@ -711,7 +712,7 @@
                             <div id = "RHS_Div" class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">UNO Degree</label>
                               <script src="./src/checkTextboxInput"></script>
-                                <input class="form-control"
+                                <input class="form-control-gp"
                                         dir="auto"
                                         id="search-mainGuidedPathways-unoDegree"
                                         name="search-mainGuidedPathways-unoDegree"
@@ -780,7 +781,7 @@
                 <script src="./dist/ts-tables-custom.js"></script>
                 <!-- Change script to call .init() instead for production -->
                 <script>
-                  const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', );
+                  const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', displayOnStart=true);
                   // Provide the source JSON file or PHP url that returns JSON
                   TableGuidedPathways.init('<?php echo $configs['initPath']?>');
                 </script>

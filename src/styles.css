@@ -10568,11 +10568,6 @@ textarea.form-control-lg {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
 
-.or-divider {
-    padding: 1rem;
-    padding-top: 1.5rem;
-}
-
 .form-control {
     display: block;
     width: 100%;
@@ -10590,7 +10585,7 @@ textarea.form-control-lg {
     border: var(--bs-border-width) solid #f2f2f2;
     border-radius: var(--bs-border-radius);
     box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
