@@ -6,6 +6,7 @@ import Recommend from './recommend'
 import Sort from './sort'
 import { CustomTable, TableState } from './types'
 
+
 class Table {
     readonly attributeName: string
     readonly classInstance: string

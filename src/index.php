@@ -1104,12 +1104,12 @@
                       <div class="hstack align-items-start">
                         <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
                           <form id="guidedPathwaysLHS"> <!-- Left side form start -->
-                            <div class="col-lg-30 pe-lg-25 form-item">
+                            <div id = "LHS_div" class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">Community/Tribal College</label>
                               <select class="form-select-hstack" 
                                       id="GuidedPathways-dropDown"
                                       name="GuidedPathways-dropDown" 
-                                      oninput="searchTable = TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(event, ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
+                                      oninput="searchTable = TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(event, ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); tables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
                                 <option selected="true" value="All">All</option>
                                 <option value="Central Community College">Central Community College</option>
                                 <option value="Iowa Western Community College">Iowa Western Community College</option>
@@ -1122,7 +1122,7 @@
                                 <option value="Wayne State College">Wayne State College</option>
                                 <option value="Western Nebraska Community College">Western Nebraska Community College</option>
                               </select>
-
+                              
                               <label for="areaid" class="form-label">Area of Study</label>
                               <select class="form-select-hstack" 
                                       id="areaOfStudyDyn" 
@@ -1149,17 +1149,19 @@
                           </form> <!-- Left side form end -->
 
                           <div class="vr m-3 mt-5 mb-5"></div>
-
+                        
                           <form id="guidedPathwaysRHS" class=me-3>
-                            <div class="col-lg-30 pe-lg-25 form-item">
+                            <div id = "RHS_Div" class="col-lg-30 pe-lg-25 form-item">
                               <label for="areaid" class="form-label">UNO Degree</label>
+                              <script src="./src/checkTextboxInput"></script>
                                 <input class="form-control"
                                         dir="auto"
                                         id="search-mainGuidedPathways-unoDegree"
                                         name="search-mainGuidedPathways-unoDegree"
-                                        oninput="TableGuidedPathways.search(event);"
+                                        oninput="TableGuidedPathways.search(event); tables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])"
                                         placeholder="Search UNO Degree"
                                         type="text">
+
                                 <!-- <input class="btn btn-light" type="submit" value="Search"> -->
                             </div>
                           </form>
