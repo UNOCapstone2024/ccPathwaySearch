@@ -1,7 +1,7 @@
 node_venv/
 py_venv/
 node_modules/
-docs/*-docs/
+docs/*
 bootstrap-test/
 
 venvs/
@@ -10,3 +10,6 @@ src/dist/
 
 # VSCode settings
 .vscode/
+
+# DSStore
+.DS_Store
