@@ -10,12 +10,14 @@ import { CustomTable, TableState } from './types'
 class Table {
     readonly attributeName: string
     readonly classInstance: string
+    displayOnStart: Boolean
     render: Render
     state: TableState
 
-    constructor(perPage = 10, attributeName = 'data-table', classInstance = 'Table', sortBy = 0) {
+    constructor(perPage = 10, attributeName = 'data-table', classInstance = 'Table', sortBy = 0, displayOnStart = true) {
         this.attributeName = attributeName
         this.classInstance = classInstance
+        this.displayOnStart = displayOnStart
         this.render = new Render(this.attributeName, this.classInstance)
         this.state = {
             data: [],
@@ -33,7 +35,7 @@ class Table {
         }
     }
 
-    public async init(url: string, displayOnStart = false): Promise<void> {
+    public async init(url: string): Promise<void> {
         try {
             parse(url, {
                 download: true,
@@ -55,46 +57,11 @@ class Table {
                     }
                     if (this.state.sort.init > 0) {
                         this.sort(this.state.headers[this.state.sort.init - 1])
-                    } else if (displayOnStart) {
+                    } else if (this.displayOnStart) {
                         this.display(this.state.data)
                     }
                 },
             })
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    public async initLocal(path: string, displayOnStart = false): Promise<void> {
-        try {
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    parse(text, {
-                        header: true,
-                        transformHeader: (h) => {
-                            return h.trim()
-                        },
-                        transform: (s) => {
-                            return s.trim()
-                        },
-                        complete: (results) => {
-                            if (results.data instanceof Array) {
-                                this.state.data = results.data as Record<string, string>[]
-                            }
-                            if (results.meta.fields) {
-                                this.state.headers = results.meta.fields
-                            } else {
-                                throw 'Headers not found, unable to sort data.'
-                            }
-                            if (this.state.sort.init > 0) {
-                                this.sort(this.state.headers[this.state.sort.init - 1])
-                            } else if (displayOnStart) {
-                                this.display(this.state.data)
-                            }
-                        },
-                    })
-                })
         } catch (error) {
             console.error(error)
         }
@@ -152,8 +119,13 @@ class Table {
         }
     }
 
-    public formSearch(e: Event, formID: string, clear=false): Table{
-        // e.preventDefault()
+    public formSearch(formID: string, clear=false): Table{
+        /**
+         * Searches through a Table object with multiple search criteria
+         * @param formID the id of the form that contains search fields
+         * @param clear on true will clear all of the form elements to a blank state
+         * @returns a temporary Table object that is filtered on search criteria
+         */
         const form = document.getElementById(formID) as HTMLFormElement | null;
         var tempTable = new Table(
             -1,
@@ -161,6 +133,7 @@ class Table {
             "TableGuidedPathways"
           );
           
+        // create tempTable deep copy of this table
         tempTable.state.data = this.state.data
         tempTable.state.headers = this.state.headers
         tempTable.state.page = this.state.page
@@ -195,14 +168,17 @@ class Table {
         return tempTable
     }
 
-    public formDynamicSearch(e: Event, formIDs: string[], tempTable: Table): Table {
-        // e.preventDefault()
+    public formDynamicSearch(selectIDs: string[], tempTable: Table): Table {
+        /**
+         * Performs a search on a given table and dynamically produces dropdown contents
+         * @param selectIDs list of select ids that will be populated with dynamic contents
+         * @param tempTable the temporary Table object to be used
+         */
+        const control = document.getElementById(selectIDs[0]) as HTMLFormElement | null;
 
-        const control = document.getElementById(formIDs[0]) as HTMLFormElement | null;
+        for (let i = 1; i < selectIDs.length; i++) {
 
-        for (let i = 1; i < formIDs.length; i++) {
-
-            const dropdown = document.getElementById(formIDs[i]) as HTMLFormElement;
+            const dropdown = document.getElementById(selectIDs[i]) as HTMLFormElement;
 
             var opts = Recommend(tempTable.state.data, control?.value, dropdown.getAttribute("tableref"))
 
@@ -224,7 +200,7 @@ class Table {
         return tempTable
     }
 
-    private display(table: CustomTable): void {
+    public display(table: CustomTable): void {
         this.state.page.last = Math.ceil(table.length / Number(this.state.page.per))
         if (this.state.page.current > this.state.page.last || this.state.page.current <= 0) {
             this.state.page.current = 1

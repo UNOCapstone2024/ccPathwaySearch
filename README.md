@@ -17,6 +17,9 @@ The TypeScript modules are responsible for generating and filtering the results 
 - For those unfamiliar with webpack, you will need to install it and simply run...
 `webpack` within the `tstables` directory. This will generate the JS modules from tstables and put them in `src/dist/`.
 
+### Configuration
+- To configure the paths for local development, navigate to the `src/config.php` and verify that `$mode` is set to 1. Set to 0 for production deployment.
+
 #### Development Server
 - To fire up a development server, follow the webpack steps above then install php.
 - Once php is installed, navigate to the `src/` directory and run: 
@@ -43,7 +46,7 @@ php -S 127.0.0.1:8000
 <center><h2>Release Notes</h2></center>
 Include a section called, "Release notes" - explain what is working in this submission (add explanation if this is not consistent with the milestone as described in the Project Plan)
 
-The project is accurately displaying guided pathways based on the user's selections as we set out to do for milestone one. There are a few issues with sorting the table where the table will lose it's state upon trying to sort or paginate.
+The project has met all of the goals for milestone two except the mobile design. All other enhancements have been met as of March 21st
 
 ## Alternative branches
 - feature-static-webpage
