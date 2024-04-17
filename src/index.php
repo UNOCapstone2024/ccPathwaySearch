@@ -763,7 +763,6 @@ $configs = include('config.php');
                                 </nav>
 
                                 <div class="card">
-                                    <img alt="" class="card-img-top" src="_img/160726_technology_049a.jpg" />
                                     <div class="card-body">
                                         <h2>View Guided Pathways by Community/Tribal College:</h2>
 
