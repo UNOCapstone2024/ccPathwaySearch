@@ -540,6 +540,53 @@ $configs = include('config.php');
                         <div class="row">
                             <aside id="aside-primary"></aside>
                             <div id="main-copy">
+                                <!-- BEGIN: Carousel -->
+                                <!-- <script type="text/javascript">
+                                    const myCarouselElement = document.querySelector('slider')
+                                    const carousel = new bootstrap.Carousel(myCarouselElement, {
+                                        interval: 2000,
+                                        touch: false
+                                    })
+                                </script> -->
+                                <div class="carousel slide mb-5" data-bs-ride="carousel" id="slider">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="_img/123456_testimg_000a.jpeg" class="d-block w-100" alt="Student near Milo Bail walking and lounging">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="_img/160726_technology_049a.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                    </div>
+                                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button> -->
+                                    <button class="carousel-control-prev ms-n3 ms-md-n4" data-bs-slide="prev"
+                                        data-bs-target="#slider" type="button">
+                                        <span aria-hidden="true" class="carousel-control-prev-icon ms-n3 ms-n4"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next me-n3 me-md-n4" data-bs-slide="next"
+                                        data-bs-target="#slider" type="button">
+                                        <span aria-hidden="true" class="carousel-control-next-icon me-n3 me-n4"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <!-- <div class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="_img/160726_technology_049a.jpg" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="_img/123456_testimg_000a.jpeg" alt="...">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- END: Carousel -->
                                 <p class="lead">
                                     Guided Pathways made between the University of Nebraska at
                                     Omaha (UNO) and Community Colleges.
