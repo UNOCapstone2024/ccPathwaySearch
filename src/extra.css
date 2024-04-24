@@ -129,3 +129,11 @@
     padding: 40px;
 } */
 
+.search-header {
+    font-size: 1.4rem;
+}
+
+[data-bs-theme=dark] .search-header {
+    color: #c0af81;
+}
+

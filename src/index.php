@@ -568,7 +568,8 @@ $configs = include('config.php');
                                             </a>
                                         </li>
                                     </template>
-                                    <div class="d-flex p-sm-4 mb-4">
+                                    <div class="p-sm-4 mb-4">
+                                        <span><p class="search-header">Search by...</p></span>
                                         <div class="search-container">
                                             <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
                                             <form id="guidedPathwaysLHS"> <!-- Left side form start -->
