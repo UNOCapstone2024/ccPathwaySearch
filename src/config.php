@@ -4,7 +4,7 @@
 
     if ($mode == 0) {
         return array(
-            'jspath' => '../../../../../_files/js/ts-tables.js',
+            'jspath' => 'site://www/_files/js/ts-tables.js',
             'stylesheetPath' => '../../../../../_files/uno-template/current/css/uno-template.css?dt=1710568858',
             'initPath' => 'https://www.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/index.txt'
          
