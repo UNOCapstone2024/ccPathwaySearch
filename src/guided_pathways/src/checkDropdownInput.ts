@@ -1,8 +1,30 @@
-function checkDropdownInput(dropdown: string, div: string, textbox: string)
+function checkDropdownInput(dropdown: Array<string>, div: string, textbox: string)
 {
-    var val = (<HTMLInputElement>document.getElementById(dropdown)!).value
+    var og_color = (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor
     var div_background = (<HTMLInputElement>document.getElementById(div)!)
-    if (val == 'All')
+    var bgColor = div_background.style.backgroundColor
+    var disable_items = false
+    var val;
+    for(var i = 0; i < dropdown.length; i++)
+    {
+        val = (<HTMLInputElement>document.getElementById(dropdown[i])!).value
+
+        
+
+        if (val == 'All')
+            {
+                disable_items = false;
+                
+        }
+        else 
+        {
+            disable_items = true;
+            break
+        }
+        console.log(disable_items)
+    }
+
+    if (disable_items == false)
     {
         (<HTMLInputElement>document.getElementById(textbox)).disabled = false;
         (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#f2f2f2";
