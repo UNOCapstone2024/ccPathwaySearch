@@ -1,5 +1,3 @@
-<center><h1>ccPathwaySearch</h1></center>
-
 ## Application Intro
 This application is a redesign of the UNO guided pathways web page. The goal is to make the process easier for users to find a specific guided pathway. This will be determined by a selected community college degree, area of study, or desired UNO degree.
 
@@ -9,7 +7,7 @@ The site is hosted with an Apache web server, and it uses TypeScript and PHP to 
 The TypeScript modules are responsible for generating and filtering the results table. PHP is responsible for the design of the web page, and it makes use of the TypeScript modules to display the desired content.
 <br><br>
 
-<center><h2>How to Use</h2></center>
+## How to Use
 
 ### Webpack
 - A webpack configuration file is availabile within `src/tstables/webpack.config.js`. This is not a production configuration and should not be used as such.
@@ -34,16 +32,21 @@ php -S 127.0.0.1:8000
 - Move the generated `node_modules` folder into `ccPathwaySearch/src/` directory
 - You should be all set!
 
-#### Technical Documentation (TBD)
+### Technical Documentation (TBD)
 - The `docs/technical-documentation/` directory can be used for this projects long-form report, written in whichever format (or wherever) the doc lead <mark>Anna</mark> chooses
 
-#### Doc generation
-- This project currently utilizes two separate doc generators: doxygen and jsdoc.
-- First install doxygen and jsdoc, then run `make -C docs/` to generate docs for both platforms.
-- The docs will generate into `docs/json-docs` and `docs/backend-docs`
-- To clean up docs easily, just run `make clean -C docs/`
+### Doc generation
+- To generate docs for this project...
+1. Install typedoc
+```bash
+npm install -g typedoc 
+```
+2. And run this command from the root of the project
+```bash
+npx typedoc --tsconfig src/guided_pathways/tsconfig.json --name ccPathwaySearch src/guided_pathways/src/index.ts 
+```
 
-<center><h2>Release Notes</h2></center>
+## Release Notes
 Include a section called, "Release notes" - explain what is working in this submission (add explanation if this is not consistent with the milestone as described in the Project Plan)
 
 The project has met all of the goals for milestone two except the mobile design. All other enhancements have been met as of March 21st
