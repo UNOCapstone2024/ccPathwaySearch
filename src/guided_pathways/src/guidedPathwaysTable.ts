@@ -2,12 +2,22 @@ import Table from '../../tstables/src/table';
 import Search from '../../tstables/src/search';
 import { TableRow, CustomTable } from '../../tstables/src/types';
 
+/**
+ * A table class specifically designed for guided pathways, extending general table functionalities.
+ */
 class GuidedPathwaysTable extends Table {
     constructor(perPage = 10, attributeName = 'data-table', classInstance = 'Table', sortBy = 0) {
         super(perPage, attributeName, classInstance, sortBy);
     }
 
-    //checks input 
+    
+    /**
+     * Adjusts properties of multiple elements based on the input length in a specified textbox.
+     * 
+     * @param {string} id - The ID of the textbox HTML element to be checked.
+     * @param {string} div - The ID of the div HTML element whose color will be modified.
+     * @param {Array<string>} list - An array of IDs for the HTML elements to be enabled/disabled and styled.
+     */
     public checkTextboxInput(id: string, div:string, list: Array<string>)
     {
         var val = (<HTMLInputElement>document.getElementById(id)!).value
@@ -33,6 +43,15 @@ class GuidedPathwaysTable extends Table {
         }
     }
 
+
+    /**
+     * Recommends options based on the provided query and type within a table.
+     * 
+     * @param {CustomTable} table - The table data to search through.
+     * @param {string} query - The query string to search for.
+     * @param {string | null} type - The type of data to search for.
+     * @returns {string[]} An array of unique recommendations based on the query and type.
+     */
     public Recommend = (table: CustomTable, query: string, type: string | null): string[] => {
         const results = table.reduce((accumulator: string[], row: TableRow) => {
             Object.keys(row).map((key: string) => {
@@ -47,13 +66,15 @@ class GuidedPathwaysTable extends Table {
         return results
     }
 
+
+    /**
+     * Searches through a Table object with multiple search criteria
+     * 
+     * @param {string} formID - the id of the form that contains search fields
+     * @param {boolean} clear - on true will clear all of the form elements to a blank state
+     * @returns {Table} a temporary Table object that is filtered on search criteria
+     */
     public formSearch(formID: string, clear=false): Table{
-        /**
-         * Searches through a Table object with multiple search criteria
-         * @param formID the id of the form that contains search fields
-         * @param clear on true will clear all of the form elements to a blank state
-         * @returns a temporary Table object that is filtered on search criteria
-         */
         const form = document.getElementById(formID) as HTMLFormElement | null;
         var tempTable = new Table(
             -1,
@@ -89,12 +110,16 @@ class GuidedPathwaysTable extends Table {
         }
         return tempTable
     }
+
+
+    /**
+     * Performs a search on a given table and dynamically produces dropdown contents
+     * 
+     * @param {string[]} selectIDs - list of select ids that will be populated with dynamic contents
+     * @param {Table} tempTable - the temporary Table object to be used
+     * @returns {Table} The updated Table instance after dynamic search.
+     */
     public formDynamicSearch(selectIDs: string[], tempTable: Table): Table {
-        /**
-         * Performs a search on a given table and dynamically produces dropdown contents
-         * @param selectIDs list of select ids that will be populated with dynamic contents
-         * @param tempTable the temporary Table object to be used
-         */
         const control = document.getElementById(selectIDs[0]) as HTMLFormElement | null;
         for (let i = 1; i < selectIDs.length; i++) {
             const dropdown = document.getElementById(selectIDs[i]) as HTMLFormElement;
