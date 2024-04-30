@@ -638,9 +638,13 @@ $configs = include('config.php');
 
                                             </form> <!-- Left side form end -->
 
-                                            <div class="or-divider">OR</div>
+                                            <div class="or-line-container">
+                                                <div class="line-separator"></div>
+                                                <div class="or-text">OR</div>
+                                                <div class="line-separator"></div>
+                                            </div>
 
-                                            <form id="guidedPathwaysRHS" class=me-3>
+                                            <form id="guidedPathwaysRHS">
                                                 <div id="RHS_Div" class="col-lg-30 pe-lg-25 form-item">
                                                     <label for="areaid" class="form-label">UNO Degree</label>
                                                     <script src="./src/checkTextboxInput"></script>
