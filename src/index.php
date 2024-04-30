@@ -545,22 +545,27 @@ $configs = include('config.php');
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <img src="<?php echo $configs['carousel_01'] ?>" class="d-block w-100" 
-                                                alt="...">
+                                                alt="People sit in the Pep Bowl on campus at the University of Nebraska at Omaha in Omaha, Nebraska">
                                         </div>
                                         <div class="carousel-item">
                                             <img src="<?php echo $configs['carousel_02'] ?>" class="d-block w-100" 
-                                                alt="...">
+                                                alt="Aerial image of University of Nebraska at Omaha in Omaha, Nebraska">
                                         </div>
-                                        <div class="carousel-item active">
+                                        <div class="carousel-item">
                                             <img src="<?php echo $configs['carousel_03'] ?>" class="d-block w-100"
-                                                alt="...">
+                                                alt="Durango celebrates Valentine’s Day with UNO students on Dodge campus">
                                         </div>
-                                        <div class="carousel-item active">
+                                        <div class="carousel-item">
                                             <img src="<?php echo $configs['carousel_04'] ?>" class="d-block w-100"
-                                                alt="...">
+                                                alt="Mary Odette Palafox, a UNO biology major, and her younger sister, Mary Jemarice Palafox, a UNO computer science major, study on Dodge Campus">
                                         </div>
-                                        <div class="carousel-item active">
-                                            <img src="<?php echo $configs['carousel_05'] ?>" class="d-block w-100" alt="...">
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_05'] ?>" class="d-block w-100" 
+                                                alt="Durango standing in front of the H&K building at the University of Nebraska at Omaha in Omaha">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_06'] ?>" class="d-block w-100" 
+                                                alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev ms-n3 ms-md-n4" data-bs-slide="prev"
