@@ -540,6 +540,46 @@ $configs = include('config.php');
                         <div class="row">
                             <aside id="aside-primary"></aside>
                             <div id="main-copy">
+                                <!-- BEGIN: Carousel -->
+                                <div class="carousel slide mb-5" data-bs-ride="carousel" id="slider">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="<?php echo $configs['carousel_01'] ?>" class="d-block w-100" 
+                                                alt="People sit in the Pep Bowl on campus at the University of Nebraska at Omaha in Omaha, Nebraska">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_02'] ?>" class="d-block w-100" 
+                                                alt="Aerial image of University of Nebraska at Omaha in Omaha, Nebraska">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_03'] ?>" class="d-block w-100"
+                                                alt="Durango celebrates Valentine’s Day with UNO students on Dodge campus">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_04'] ?>" class="d-block w-100"
+                                                alt="Mary Odette Palafox, a UNO biology major, and her younger sister, Mary Jemarice Palafox, a UNO computer science major, study on Dodge Campus">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_05'] ?>" class="d-block w-100" 
+                                                alt="Durango standing in front of the H&K building at the University of Nebraska at Omaha in Omaha">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo $configs['carousel_06'] ?>" class="d-block w-100" 
+                                                alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev ms-n3 ms-md-n4" data-bs-slide="prev"
+                                        data-bs-target="#slider" type="button">
+                                        <span aria-hidden="true" class="carousel-control-prev-icon ms-n3 ms-n4"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next me-n3 me-md-n4" data-bs-slide="next"
+                                        data-bs-target="#slider" type="button">
+                                        <span aria-hidden="true" class="carousel-control-next-icon me-n3 me-n4"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <!-- END: Carousel -->
                                 <p class="lead">
                                     Guided Pathways made between the University of Nebraska at
                                     Omaha (UNO) and Community Colleges.
@@ -767,7 +807,6 @@ $configs = include('config.php');
                                 </nav>
 
                                 <div class="card">
-                                    <img alt="" class="card-img-top" src="_img/160726_technology_049a.jpg" />
                                     <div class="card-body">
                                         <h2>View Guided Pathways by Community/Tribal College:</h2>
 
