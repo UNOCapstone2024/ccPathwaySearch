@@ -568,7 +568,7 @@ $configs = include('config.php');
                                                 alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha">
                                         </div>
                                     </div>
-                                    <button class="carousel-control-prev ms-n3 ms-md-n4" data-bs-slide="prev"
+                                    <!-- <button class="carousel-control-prev ms-n3 ms-md-n4" data-bs-slide="prev"
                                         data-bs-target="#slider" type="button">
                                         <span aria-hidden="true" class="carousel-control-prev-icon ms-n3 ms-n4"></span>
                                         <span class="visually-hidden">Previous</span>
@@ -577,7 +577,7 @@ $configs = include('config.php');
                                         data-bs-target="#slider" type="button">
                                         <span aria-hidden="true" class="carousel-control-next-icon me-n3 me-n4"></span>
                                         <span class="visually-hidden">Next</span>
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <!-- END: Carousel -->
                                 <p class="lead">
