@@ -263,7 +263,7 @@
                         </select>
 
                         <label for="areaid" class="form-label">CC Degree</label>
-                        <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree" tableref="Community College Degree" oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS'); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')" placeholder="Epic Stoyle">
+                        <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree" tableref="Community College Degree" oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS'); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
                             <option selected="true" value="All">All</option>
                         </select>
 
@@ -282,7 +282,7 @@
                     <div id="RHS_Div" class="col-lg-30 pe-lg-25 form-item">
                         <label for="areaid" class="form-label">UNO Degree</label>
                         <script src="./src/checkTextboxInput"></script>
-                        <input class="form-control-gp" dir="auto" id="search-mainGuidedPathways-unoDegree" name="search-mainGuidedPathways-unoDegree" oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])" placeholder="Search UNO Degree" type="text">
+                        <input class="form-control-gp" dir="auto" id="search-mainGuidedPathways-unoDegree" name="search-mainGuidedPathways-unoDegree" oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])" placeholder="Search UNO Degree" type="text"/>
 
                         <!-- <input class="btn btn-light" type="submit" value="Search"> -->
                     </div>
@@ -333,9 +333,9 @@
         <script>
             const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', displayOnStart = true);
             // Provide the source JSON file or PHP url that returns JSON
-            TableGuidedPathways.init('<?php echo $configs['initPath'] ?>');
+            TableGuidedPathways.init('https://www.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/index.txt');
         </script>
-
+</div>
     [/system-view:external]
 
     [system-view:internal]
