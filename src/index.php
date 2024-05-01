@@ -3,7 +3,7 @@
 <?php
 $configs = include('config.php');
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -614,7 +614,7 @@ $configs = include('config.php');
                                             <form id="guidedPathwaysLHS"> <!-- Left side form start -->
                                                 <div id="LHS_div" class="col-lg-30 pe-lg-25 form-item">
                                                     <label for="areaid" class="form-label">Community/Tribal College</label>
-                                                    <select class="form-select-gp" id="GuidedPathways-dropDown" name="GuidedPathways-dropDown" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                                                    <select class="form-select-gp" id="GuidedPathways-dropDown" name="GuidedPathways-dropDown" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
                                                         <option selected="true" value="All">All</option>
                                                         <option value="Central Community College">Central Community College</option>
                                                         <option value="Iowa Western Community College">Iowa Western Community College</option>
@@ -629,12 +629,12 @@ $configs = include('config.php');
                                                     </select>
 
                                                     <label for="areaid" class="form-label">Area of Study</label>
-                                                    <select class="form-select-gp" id="areaOfStudyDyn" name="search-mainGuidedPathways-areaOfStudy" tableref="Major (Concentration)" type="text" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
+                                                    <select class="form-select-gp" id="areaOfStudyDyn" name="search-mainGuidedPathways-areaOfStudy" tableref="Major (Concentration)" type="text" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
                                                         <option selected="true" value="All">All</option>
                                                     </select>
 
                                                     <label for="areaid" class="form-label">CC Degree</label>
-                                                    <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree" tableref="Community College Degree" oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS')" placeholder="Epic Stoyle">
+                                                    <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree" tableref="Community College Degree" oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS'); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')" placeholder="Epic Stoyle">
                                                         <option selected="true" value="All">All</option>
                                                     </select>
 

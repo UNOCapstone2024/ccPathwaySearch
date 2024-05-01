@@ -10,22 +10,62 @@
  * @param {string} div - The ID of the div HTML element whose color will be modified.
  * @param {string} textbox - The ID of the textbox HTML element that will be enabled/disabled and styled.
  */
-function checkDropdownInput(dropdown: string, div: string, textbox: string)
+function checkDropdownInput(dropdown: Array<string>, div: string, textbox: string)
 {
-    var val = (<HTMLInputElement>document.getElementById(dropdown)!).value
+    var og_color = (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor
     var div_background = (<HTMLInputElement>document.getElementById(div)!)
-    if (val == 'All')
+    var bgColor = div_background.style.backgroundColor
+    var disable_items = false
+    const theme = (document.getElementsByTagName("html")[0]).getAttribute("data-bs-theme")
+    var val;
+
+    for(var i = 0; i < dropdown.length; i++)
+    {
+        val = (<HTMLInputElement>document.getElementById(dropdown[i])!).value
+
+        
+
+        if (val == 'All')
+            {
+                disable_items = false;
+                
+        }
+        else 
+        {
+            disable_items = true;
+            break
+        }
+    }
+
+    if (disable_items == false)
     {
         (<HTMLInputElement>document.getElementById(textbox)).disabled = false;
-        (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#f2f2f2";
-        div_background.style.color = "#555555"
+
+        if(theme == "light"){
+            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#f2f2f2";
+            div_background.style.color = "#555555"
+        }
+        else if(theme == "dark"){
+            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#333333";
+            div_background.style.color = "#f2f2f2"
+        }
+        
         
     }
     else
     {
         (<HTMLInputElement>document.getElementById(textbox)).disabled = true;
-        (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#e1e1e1";
-        div_background.style.color = "grey"
+
+        if(theme == "light"){
+            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#e1e1e1";
+            div_background.style.color = "grey"
+        }
+
+        else if(theme == "dark"){
+            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#555555";
+            div_background.style.color = "dark grey"
+        }
+
     }
     
 }
