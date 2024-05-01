@@ -3,7 +3,7 @@
 <?php
 $configs = include('config.php');
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-bs-theme="dark">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8" />
