@@ -14,9 +14,7 @@
             color: #333
         }
 
-
-
-        @media (min-width: 787px) {
+        @media (min-width: 801px) {
             .search-container {
               display: flex;
               flex-direction: row !important;
@@ -26,11 +24,25 @@
             .search-container > form {
               flex: 1;
             }
+
+            .or-line-container {
+                flex-direction: column;
+                padding: 1rem;
+                padding-top: 1.5rem;
+            }
+
+            .line-separator {
+                border-left: 2px solid #c4c4c4;
+                height: 50%;
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
           }
 
           .search-container {
             display: flex;
             flex-direction: column;
+            width: 100%;
           }
 
 
@@ -58,9 +70,10 @@
 
         .form-control-gp {
             display: block;
-            width: 300px;
-            min-width: 50%;
-            padding: .3rem 2.55rem .3rem .85rem;
+            width: 100%;
+            min-width: 100%;
+            align-items: center;
+            padding: .3rem .85rem .3rem .85rem;
             font-size: calc(0.7975rem + 0.27vw);
             font-weight: 400;
             line-height: 1.6;
@@ -79,12 +92,16 @@
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
         }
 
+        .form-item {
+            width: 100%;
+        }
+
         .form-select-gp {
             --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23333%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
             display: block;
-            width: 300px;
+            width: 100%;
             min-width: 100%;
-            padding: .3rem 2.55rem .3rem .85rem;
+            padding: .3rem .85rem .3rem .85rem;
             font-size: calc(0.7975rem + 0.27vw);
             font-weight: 400;
             line-height: 1.6;
@@ -104,6 +121,20 @@
         @media (max-width: 800px) {
             .form-select-hstack {
                 width: 100%;
+            }
+
+            .or-line-container {
+                display: flex;
+                flex-direction: row;
+                padding: 1rem;
+                padding-top: 1.5rem;
+            }
+
+            .line-separator {
+                border-top: 2px solid #c4c4c4;
+                width: 100%;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
             }
         }
 
@@ -130,144 +161,181 @@
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
         }
 
-        .or-divider {
-            padding: 1rem;
-            padding-top: 1.5rem;
+        [data-bs-theme=dark] input {
+            background-color: #333333;
+            color: #f2f2f2;
         }
+
+        [data-bs-theme=dark] select {
+            background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 100% 50%;
+            background-color: #333333;
+            color: #f2f2f2;
+
+        }
+
+        .or-text{
+            padding: 0.25rem;
+        }
+
     </style>
-    <template data-GuidedPathways="rowTemplate">
-      <tr></tr>
-    </template>
-    <template data-GuidedPathways="itemTemplate">
-      <td></td>
-    </template>
-    <template data-GuidedPathways="colTemplate">
-      <th class="align-middle" scope="col" style="cursor: pointer" tabindex="0">
-        <div class="d-flex align-items-center">
-          <span></span>
-          <i class="bi bi-caret-up ms-2"></i>
-          <i class="bi bi-caret-down ms-n1"></i>
-        </div>
-      </th>
-    </template>
-    <template data-GuidedPathways="paginationTemplate">
-      <li class="page-item">
-        <a
-          class="page-link"
-          role="button"
-          style="margin-left: -1px; border-radius: 0"
-          tabindex="0"
-        >
-          <span></span>
-        </a>
-      </li>
-    </template>
-        <div class="d-flex p-sm-4 mb-4">
-          <div class="search-container">
-            <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
-              <form id="guidedPathwaysLHS"> <!-- Left side form start -->
-                <div id = "LHS_div" class="col-lg-30 pe-lg-25 form-item">
-                  <label for="areaid" class="form-label">Community/Tribal College</label>
-                  <select class="form-select-gp" 
-                          id="GuidedPathways-dropDown"
-                          name="GuidedPathways-dropDown" 
-                          oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput('GuidedPathways-dropDown', 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
-                    <option selected="true" value="All">All</option>
-                    <option value="Central Community College">Central Community College</option>
-                    <option value="Iowa Western Community College">Iowa Western Community College</option>
-                    <option value="Little Priest Tribal College">Little Priest Tribal College</option>
-                    <option value="Metropolitan Community College">Metropolitan Community College</option>
-                    <option value="Mid-Plains Community College">Mid-Plains Community College</option>
-                    <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
-                    <option value="Northeast Community College">Northeast Community College</option>
-                    <option value="Southeast Community College">Southeast Community College</option>
-                    <option value="Wayne State College">Wayne State College</option>
-                    <option value="Western Nebraska Community College">Western Nebraska Community College</option>
-                  </select>
-                  
-                  <label for="areaid" class="form-label">Area of Study</label>
-                  <select class="form-select-gp" 
-                          id="areaOfStudyDyn" 
-                          name="search-mainGuidedPathways-areaOfStudy"
-                          tableref="Major (Concentration)"
-                          type="text"
-                          oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable)">
-                    <option selected="true" value="All">All</option>
-                  </select>
-              <label for="areaid" class="form-label">CC Degree</label>
-              <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree"
-                tableref="Community College Degree"
-                oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS')"
-                placeholder="Epic Stoyle">
-                <option selected="true" value="All">All</option>
-              </select>
-              <!-- <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"> -->
+
+    <!-- BEGIN: Carousel -->
+    <div class="carousel slide mb-5" data-bs-ride="carousel" id="slider">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="<?php echo $configs['carousel_01'] ?>" class="d-block w-100" 
+                    alt="People sit in the Pep Bowl on campus at the University of Nebraska at Omaha in Omaha, Nebraska">
             </div>
-          </form> <!-- Left side form end -->
-              <div class="or-divider">OR</div>
-            
-              <form id="guidedPathwaysRHS" class=me-3>
-                <div id = "RHS_Div" class="col-lg-30 pe-lg-25 form-item">
-                  <label for="areaid" class="form-label">UNO Degree</label>
-                  <script src="./src/checkTextboxInput"></script>
-                    <input class="form-control-gp"
-                            dir="auto"
-                            id="search-mainGuidedPathways-unoDegree"
-                            name="search-mainGuidedPathways-unoDegree"
-                            oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])"
-                            placeholder="Search UNO Degree"
-                            type="text">
-                    <!-- <input class="btn btn-light" type="submit" value="Search"> -->
-                </div>
-              </form>
-          <!-- </div>  -->
-        </div> <!-- End of first row -->
-        <!-- Line separator -->
-        <div class="row">
-        </div> <!-- End of second row -->
-      </div>
-      <!-- Top Navigation -->
-      <!-- Table -->
-      <!-- Table Header -->
-      <div class="table-responsive my-2">
-        <script src="<?php echo $configs['jspath']?>"></script>
-        <table class="table table-bordered table-striped align-middle" id="GuidedPathways">
-          <thead data-GuidedPathways="thead"></thead>
-          <tbody data-GuidedPathways="tbody"></tbody>
-        </table>
-      </div>
-          <div
-            class="d-sm-flex justify-content-center my-3"
-          >
-      <!-- Bottom navigation -->
-      <div class="d-lg-flex flex-wrap align-items-center justify-content-between">
-        <div class="d-flex order-2 align-items-center justify-content-center mb-4">
-          <p class="pe-3 m-0 me-3" data-GuidedPathways="entries" id="entries"></p>
-          <label id="itemsPerPageGuidedPathways" class="form-label text-end m-0 me-2">results per
-            page</label>
-          <select name="itemsPerPageGuidedPathways" class="form-select form-select-sm py-2"
-            aria-labelledby="itemsPerPageGuidedPathways" onchange="TableGuidedPathways.page.reload(event);">
-            <option value="10">10</option>
-            <option value="25" selected="selected">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="-1">All</option>
-          </select>
+            <div class="carousel-item">
+                <img src="<?php echo $configs['carousel_02'] ?>" class="d-block w-100" 
+                    alt="Aerial image of University of Nebraska at Omaha in Omaha, Nebraska">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo $configs['carousel_03'] ?>" class="d-block w-100"
+                    alt="Durango celebrates Valentine’s Day with UNO students on Dodge campus">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo $configs['carousel_04'] ?>" class="d-block w-100"
+                    alt="Mary Odette Palafox, a UNO biology major, and her younger sister, Mary Jemarice Palafox, a UNO computer science major, study on Dodge Campus">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo $configs['carousel_05'] ?>" class="d-block w-100" 
+                    alt="Durango standing in front of the H&K building at the University of Nebraska at Omaha in Omaha">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo $configs['carousel_06'] ?>" class="d-block w-100" 
+                    alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha">
+            </div>
         </div>
-        <nav aria-label="Pagination Navigation" class="order-1" role="navigation">
-          <ul class="pagination d-flex flex-nowrap justify-content-center ps-0 mb-4"
-            data-GuidedPathways="pagination"></ul>
-        </nav>
-      </div>
     </div>
-    <!-- <script src="<?php echo $configs['jspath']?>"></script> -->
-    <script src="./dist/ts-tables-custom.js"></script>
-    <!-- Change script to call .init() instead for production -->
-    <script>
-      const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', displayOnStart=true);
-      // Provide the source JSON file or PHP url that returns JSON
-      TableGuidedPathways.init('<?php echo $configs['initPath']?>');
-    </script>
+    <!-- END: Carousel -->
+    <p class="lead">
+        Guided Pathways made between the University of Nebraska at
+        Omaha (UNO) and Community Colleges.
+    </p>
+
+    <div class="card shadow p-4 p-sm-2 mx-auto my-4" id="search-anchor">
+        <template data-GuidedPathways="rowTemplate">
+            <tr></tr>
+        </template>
+        <template data-GuidedPathways="itemTemplate">
+            <td></td>
+        </template>
+        <template data-GuidedPathways="colTemplate">
+            <th class="align-middle" scope="col" style="cursor: pointer" tabindex="0">
+                <div class="d-flex align-items-center">
+                    <span></span>
+                    <i class="bi bi-caret-up ms-2"></i>
+                    <i class="bi bi-caret-down ms-n1"></i>
+                </div>
+            </th>
+        </template>
+        <template data-GuidedPathways="paginationTemplate">
+            <li class="page-item">
+                <a class="page-link" role="button" style="margin-left: -1px; border-radius: 0" tabindex="0">
+                    <span></span>
+                </a>
+            </li>
+        </template>
+        <div class="d-flex p-sm-4 mb-4">
+            <div class="search-container">
+                <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
+                <form id="guidedPathwaysLHS"> <!-- Left side form start -->
+                    <div id="LHS_div" class="col-lg-30 pe-lg-25 form-item">
+                        <label for="areaid" class="form-label">Community/Tribal College</label>
+                        <select class="form-select-gp" id="GuidedPathways-dropDown" name="GuidedPathways-dropDown" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                            <option selected="true" value="All">All</option>
+                            <option value="Central Community College">Central Community College</option>
+                            <option value="Iowa Western Community College">Iowa Western Community College</option>
+                            <option value="Little Priest Tribal College">Little Priest Tribal College</option>
+                            <option value="Metropolitan Community College">Metropolitan Community College</option>
+                            <option value="Mid-Plains Community College">Mid-Plains Community College</option>
+                            <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
+                            <option value="Northeast Community College">Northeast Community College</option>
+                            <option value="Southeast Community College">Southeast Community College</option>
+                            <option value="Wayne State College">Wayne State College</option>
+                            <option value="Western Nebraska Community College">Western Nebraska Community College</option>
+                        </select>
+
+                        <label for="areaid" class="form-label">Area of Study</label>
+                        <select class="form-select-gp" id="areaOfStudyDyn" name="search-mainGuidedPathways-areaOfStudy" tableref="Major (Concentration)" type="text" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                            <option selected="true" value="All">All</option>
+                        </select>
+
+                        <label for="areaid" class="form-label">CC Degree</label>
+                        <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree" tableref="Community College Degree" oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS'); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')" placeholder="Epic Stoyle">
+                            <option selected="true" value="All">All</option>
+                        </select>
+
+                        <!-- <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"> -->
+                    </div>
+
+                </form> <!-- Left side form end -->
+
+                <div class="or-line-container">
+                    <div class="line-separator"></div>
+                    <div class="or-text">OR</div>
+                    <div class="line-separator"></div>
+                </div>
+
+                <form id="guidedPathwaysRHS">
+                    <div id="RHS_Div" class="col-lg-30 pe-lg-25 form-item">
+                        <label for="areaid" class="form-label">UNO Degree</label>
+                        <script src="./src/checkTextboxInput"></script>
+                        <input class="form-control-gp" dir="auto" id="search-mainGuidedPathways-unoDegree" name="search-mainGuidedPathways-unoDegree" oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])" placeholder="Search UNO Degree" type="text">
+
+                        <!-- <input class="btn btn-light" type="submit" value="Search"> -->
+                    </div>
+                </form>
+                <!-- </div>  -->
+            </div> <!-- End of first row -->
+            <!-- Line separator -->
+            <div class="row">
+
+            </div> <!-- End of second row -->
+        </div>
+        <!-- Top Navigation -->
+        <!-- Table -->
+        <!-- Table Header -->
+        <div class="table-responsive my-2">
+            <script src="<?php echo $configs['jspath'] ?>"></script>
+            <table class="table table-bordered table-striped align-middle" id="GuidedPathways">
+                <thead data-GuidedPathways="thead"></thead>
+
+                <tbody data-GuidedPathways="tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="d-sm-flex justify-content-center my-3">
+
+            <!-- Bottom navigation -->
+            <div class="d-lg-flex flex-wrap align-items-center justify-content-between">
+                <div class="d-flex order-2 align-items-center justify-content-center mb-4">
+                    <p class="pe-3 m-0 me-3" data-GuidedPathways="entries" id="entries"></p>
+                    <label id="itemsPerPageGuidedPathways" class="form-label text-end m-0 me-2">results per
+                        page</label>
+                    <select name="itemsPerPageGuidedPathways" class="form-select form-select-sm py-2" aria-labelledby="itemsPerPageGuidedPathways" onchange="TableGuidedPathways.page.reload(event);">
+                        <option value="10">10</option>
+                        <option value="25" selected="selected">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="-1">All</option>
+                    </select>
+                </div>
+                <nav aria-label="Pagination Navigation" class="order-1" role="navigation">
+                    <ul class="pagination d-flex flex-nowrap justify-content-center ps-0 mb-4" data-GuidedPathways="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+        <!-- <script src="<?php echo $configs['jspath'] ?>"></script> -->
+        <script src="./dist/ts-tables-custom.js"></script>
+        <!-- Change script to call .init() instead for production -->
+        <script>
+            const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', displayOnStart = true);
+            // Provide the source JSON file or PHP url that returns JSON
+            TableGuidedPathways.init('<?php echo $configs['initPath'] ?>');
+        </script>
+
     [/system-view:external]
 
     [system-view:internal]
