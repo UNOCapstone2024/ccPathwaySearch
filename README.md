@@ -52,7 +52,8 @@ Include a section called, "Release notes" - explain what is working in this subm
 The project has met all of the goals for milestone two except the mobile design. All other enhancements have been met as of March 21st
 
 0.1.0 - Deployment testing. Forms working, but lacks responseive design and input blocking
-0.1.1 - Latest - Currently deployed, Forms working, responsive design working, and input blocking.
+0.1.1 - Forms working, responsive design working, and input blocking.
+0.1.2 - Form styling done + final responsive design styling + carousel + dark mode
 
 ## Alternative branches
 - feature-static-webpage
