@@ -38,7 +38,7 @@ $configs = include('config.php');
     </script>
 </head>
 
-<body>
+<body onload = "customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree'); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn']) ">
     <!-- Google Tag Manager<noscript
       ><iframe
         aria-hidden="true"
