@@ -39,32 +39,12 @@ function checkDropdownInput(dropdown: Array<string>, div: string, textbox: strin
 
     if (disable_items == false)
     {
-        (<HTMLInputElement>document.getElementById(textbox)).disabled = false;
-
-        if(theme == "light"){
-            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#f2f2f2";
-            div_background.style.color = "#555555"
-        }
-        else if(theme == "dark"){
-            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#333333";
-            div_background.style.color = "#f2f2f2"
-        }
-        
+        (<HTMLInputElement>document.getElementById(textbox)).disabled = false;     
         
     }
     else
     {
         (<HTMLInputElement>document.getElementById(textbox)).disabled = true;
-
-        if(theme == "light"){
-            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#e1e1e1";
-            div_background.style.color = "grey"
-        }
-
-        else if(theme == "dark"){
-            (<HTMLInputElement>document.getElementById(textbox)).style.backgroundColor = "#555555";
-            div_background.style.color = "dark grey"
-        }
 
     }
     
