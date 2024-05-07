@@ -22,7 +22,6 @@ $configs = include('config.php');
     <meta name="msapplication-TileColor" content="#c12626" />
     <meta name="theme-color" content="#ffffff" />
     <link href="<?php echo $configs['stylesheetPath'] ?>" rel="stylesheet" />
-    <link href="./extra.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script type="text/javascript">
@@ -540,32 +539,235 @@ $configs = include('config.php');
                         <div class="row">
                             <aside id="aside-primary"></aside>
                             <div id="main-copy">
+
+                                <style>
+                                    .form-label {
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        color: #333
+                                    }
+
+
+
+                                    @media (min-width: 801px) {
+                                        .search-container {
+                                        display: flex;
+                                        flex-direction: row !important;
+                                        justify-content: space-between;
+                                        }
+                                    
+                                        .search-container > form {
+                                        flex: 1;
+                                        }
+
+                                        .or-line-container {
+                                            flex-direction: column;
+                                            padding: 1rem;
+                                            padding-top: 1.5rem;
+                                        }
+                                        
+                                        .line-separator {
+                                            border-left: 2px solid #c4c4c4;
+                                            height: 50%;
+                                            margin-left: 1rem;
+                                            margin-right: 1rem;
+                                        }
+                                    }
+                                    
+                                    .search-container {
+                                        display: flex;
+                                        flex-direction: column;
+                                        width: 100%;
+                                    }
+
+                                    #search-mainGuidedPathways-unoDegree, .form-control-dp {
+                                        display: block;
+                                        width: 100%;
+                                        min-width: 100%;
+                                        align-items: center;
+                                        padding: .3rem .85rem .3rem .85rem;
+                                        font-size: calc(0.7975rem + 0.27vw);
+                                        font-weight: 400;
+                                        line-height: 1.6;
+                                        color: var(--bs-body-color);
+                                        appearance: none;
+                                        background-color: #f2f2f2;
+                                        background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+                                        background-repeat: no-repeat;
+                                        background-position: right .85rem center;
+                                        background-size: 16px 12px;
+                                        border: var(--bs-border-width) solid #f2f2f2;
+                                        border-radius: var(--bs-border-radius);
+                                        box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
+                                        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                                        box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+                                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+                                    }
+
+                                    #LHS_div.form-item, #RHS_div.form-item {
+                                        width: 100%;
+                                    }
+
+                                    .form-control {
+                                        display: block;
+                                        width: 100%;
+                                        padding: .3rem 2.55rem .3rem .85rem;
+                                        font-size: calc(0.7975rem + 0.27vw);
+                                        font-weight: 400;
+                                        line-height: 1.6;
+                                        color: var(--bs-body-color);
+                                        appearance: none;
+                                        background-color: #f2f2f2;
+                                        background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+                                        background-repeat: no-repeat;
+                                        background-position: right .85rem center;
+                                        background-size: 16px 12px;
+                                        border: var(--bs-border-width) solid #f2f2f2;
+                                        border-radius: var(--bs-border-radius);
+                                        box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
+                                        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                                        box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+                                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+                                    }
+
+                                    #GuidedPathways-dropDown, #areaOfStudyDyn, #ccDegreeDyn, .form-select-gp {
+                                        --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23333%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
+                                        display: block;
+                                        width: 100%;
+                                        min-width: 100%;
+                                        padding: .3rem .85rem .3rem .85rem;
+                                        font-size: calc(0.7975rem + 0.27vw);
+                                        font-weight: 400;
+                                        line-height: 1.6;
+                                        color: var(--bs-body-color);
+                                        appearance: none;
+                                        background-color: #f2f2f2;
+                                        background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+                                        background-repeat: no-repeat;
+                                        background-position: right .85rem center;
+                                        background-size: 16px 12px;
+                                        border: var(--bs-border-width) solid #f2f2f2;
+                                        border-radius: var(--bs-border-radius);
+                                        box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
+                                        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+                                    }
+
+                                    @media (max-width: 800px) {
+                                        .form-select-hstack {
+                                            width: 100%;
+                                        }
+
+                                        .or-line-container {
+                                            display: flex;
+                                            flex-direction: row;
+                                            padding: 1rem;
+                                            padding-top: 1.5rem;
+                                        }
+
+                                        .line-separator {
+                                            border-top: 2px solid #c4c4c4;
+                                            width: 100%;
+                                            margin-top: 1rem;
+                                            margin-bottom: 1rem;
+                                        }
+                                    }
+
+                                    .form-select-hstack {
+                                        --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23333%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
+                                        display: block;
+                                        /* min-width: 300px;
+                                        max-width: 300px; */
+                                        width:100%;
+                                        padding: .3rem 2.55rem .3rem .85rem;
+                                        font-size: calc(0.7975rem + 0.27vw);
+                                        font-weight: 400;
+                                        line-height: 1.6;
+                                        color: var(--bs-body-color);
+                                        appearance: none;
+                                        background-color: #f2f2f2;
+                                        background-image: var(--bs-form-select-bg-img),var(--bs-form-select-bg-icon, none);
+                                        background-repeat: no-repeat;
+                                        background-position: right .85rem center;
+                                        background-size: 16px 12px;
+                                        border: var(--bs-border-width) solid #f2f2f2;
+                                        border-radius: var(--bs-border-radius);
+                                        box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+                                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+                                    }
+
+                                    #search-mainGuidedPathways-unoDegree:disabled {
+                                        background-color: #e1e1e1;
+                                        color: grey;
+                                    }
+
+                                    [data-bs-theme=dark] #search-mainGuidedPathways-unoDegree {
+                                        background-color: #333333;
+                                        color: #f2f2f2;
+                                    }
+
+                                    [data-bs-theme=dark] #search-mainGuidedPathways-unoDegree:disabled {
+                                        background-color: #555555;
+                                        color: #f2f2f2;
+                                    }
+
+                                    #GuidedPathways-dropDown:disabled,
+                                    #areaOfStudyDyn:disabled,
+                                    #ccDegreeDyn:disabled {
+                                        background-color: #e1e1e1;
+                                        color: grey;
+                                        
+                                    }
+
+                                    [data-bs-theme=dark] #GuidedPathways-dropDown,
+                                    [data-bs-theme=dark] #areaOfStudyDyn,
+                                    [data-bs-theme=dark] #ccDegreeDyn {
+                                        background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 100% 50%;
+                                        background-color: #333333;
+                                        color: #f2f2f2;
+                                        
+                                    }
+
+                                    [data-bs-theme=dark] #GuidedPathways-dropDown:disabled,
+                                    [data-bs-theme=dark] #areaOfStudyDyn:disabled,
+                                    [data-bs-theme=dark] #ccDegreeDyn:disabled {
+                                        background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 100% 50%;
+                                        background-color: #555555;
+                                        color: darkgrey;
+                                        
+                                    }
+
+                                    .or-text{
+                                        padding: 0.25rem;
+                                    }
+
+                                </style>
+
                                 <!-- BEGIN: Carousel -->
                                 <div class="carousel slide mb-5" data-bs-ride="carousel" id="slider">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="site://www/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/campus_1.jpg" class="d-block w-100" 
-                                                alt="People sit in the Pep Bowl on campus at the University of Nebraska at Omaha in Omaha, Nebraska">
+                                            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/campus_1.jpg" class="d-block w-100" 
+                                                alt="People sit in the Pep Bowl on campus at the University of Nebraska at Omaha in Omaha, Nebraska"/>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="site://www/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/aerial.jpg" class="d-block w-100" 
-                                                alt="Aerial image of University of Nebraska at Omaha in Omaha, Nebraska">
+                                            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/aerial.jpg" class="d-block w-100" 
+                                                alt="Aerial image of University of Nebraska at Omaha in Omaha, Nebraska"/>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="site://www/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/durango_1.jpg" class="d-block w-100"
-                                                alt="Durango celebrates Valentine’s Day with UNO students on Dodge campus">
+                                            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/durango_1.jpg" class="d-block w-100"
+                                                alt="Durango celebrates Valentine’s Day with UNO students on Dodge campus"/>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="site://www/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/library.jpg" class="d-block w-100"
-                                                alt="Mary Odette Palafox, a UNO biology major, and her younger sister, Mary Jemarice Palafox, a UNO computer science major, study on Dodge Campus">
+                                            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/library.jpg" class="d-block w-100"
+                                                alt="Mary Odette Palafox, a UNO biology major, and her younger sister, Mary Jemarice Palafox, a UNO computer science major, study on Dodge Campus"/>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="site://www/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/durango_2.jpg" class="d-block w-100" 
-                                                alt="Durango standing in front of the H&K building at the University of Nebraska at Omaha in Omaha">
+                                            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/durango_2.jpg" class="d-block w-100" 
+                                                alt="Durango standing in front of the H&K building at the University of Nebraska at Omaha in Omaha"/>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="site://www/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/commencement.jpg" class="d-block w-100" 
-                                                alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha">
+                                            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/commencement.jpg" class="d-block w-100" 
+                                                alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha"/>
                                         </div>
                                     </div>
                                     <!-- <button class="carousel-control-prev ms-n3 ms-md-n4" data-bs-slide="prev"
@@ -652,7 +854,6 @@ $configs = include('config.php');
                                             <form id="guidedPathwaysRHS">
                                                 <div id="RHS_Div" class="col-lg-30 pe-lg-25 form-item">
                                                     <label for="areaid" class="form-label">UNO Degree</label>
-                                                    <script src="./src/checkTextboxInput"></script>
                                                     <input class="form-control-gp" dir="auto" id="search-mainGuidedPathways-unoDegree" name="search-mainGuidedPathways-unoDegree" oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])" placeholder="Search UNO Degree" type="text">
 
                                                     <!-- <input class="btn btn-light" type="submit" value="Search"> -->
@@ -679,7 +880,6 @@ $configs = include('config.php');
                                     <!-- Table -->
                                     <!-- Table Header -->
                                     <div class="table-responsive my-2">
-                                        <script src="<?php echo $configs['jspath'] ?>"></script>
                                         <table class="table table-bordered table-striped align-middle" id="GuidedPathways">
                                             <thead data-GuidedPathways="thead"></thead>
 

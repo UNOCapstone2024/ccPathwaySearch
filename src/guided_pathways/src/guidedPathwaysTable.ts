@@ -56,7 +56,6 @@ class GuidedPathwaysTable extends Table {
         const results = table.reduce((accumulator: string[], row: TableRow) => {
             Object.keys(row).map((key: string) => {
                 if (key.toLowerCase() == type?.toLowerCase() ) {
-                    console.log(key)
                     accumulator.push(row[key].toString())
                 }
             })
