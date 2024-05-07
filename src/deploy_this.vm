@@ -355,7 +355,6 @@
             </nav>
         </div>
     </div>
-    <!-- <script src="<?php echo $configs['jspath'] ?>"></script> -->
     <script src="${jsPath}"></script>
     <!-- Change script to call .init() instead for production -->
     <script>
