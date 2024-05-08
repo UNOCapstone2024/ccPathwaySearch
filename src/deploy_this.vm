@@ -17,13 +17,13 @@
 
     @media (min-width: 801px) {
         .search-container {
-        display: flex;
-        flex-direction: row !important;
-        justify-content: space-between;
+            display: flex;
+            flex-direction: row !important;
+            justify-content: space-between;
         }
     
-        .search-container > form {
-        flex: 1;
+        .search-container form {
+            flex: 1;
         }
 
         .or-line-container {
@@ -67,7 +67,7 @@
         box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
         transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
     }
 
     #LHS_div.form-item, #RHS_div.form-item {
@@ -238,10 +238,6 @@
     </div>
 </div>
 <!-- END: Carousel -->
-<p class="lead">
-    Guided Pathways made between the University of Nebraska at
-    Omaha (UNO) and Community Colleges.
-</p>
 
 <div class="card shadow p-4 p-sm-2 mx-auto my-4" id="search-anchor">
     <template data-GuidedPathways="rowTemplate">

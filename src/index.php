@@ -551,13 +551,13 @@ $configs = include('config.php');
 
                                     @media (min-width: 801px) {
                                         .search-container {
-                                        display: flex;
-                                        flex-direction: row !important;
-                                        justify-content: space-between;
+                                            display: flex;
+                                            flex-direction: row !important;
+                                            justify-content: space-between;
                                         }
                                     
-                                        .search-container > form {
-                                        flex: 1;
+                                        .search-container form {
+                                            flex: 1;
                                         }
 
                                         .or-line-container {
