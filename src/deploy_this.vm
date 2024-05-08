@@ -13,8 +13,6 @@
         color: #333
     }
 
-
-
     @media (min-width: 801px) {
         .search-container {
             display: flex;
