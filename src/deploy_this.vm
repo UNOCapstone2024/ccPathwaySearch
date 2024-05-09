@@ -1,0 +1,413 @@
+## Block for the table data: _cascade/blocks/index/guided-pathways
+#set ( $tableId = "GuidedPathways" ) ## external-view tableId
+#set ( $setupBlockData = $_.locateBlock("/setup", $currentPageSiteName))
+#set ( $siteUrl = $setupBlockData.getStructuredDataNode("admin/siteUrl").textValue )
+#set ( $includePath = $siteUrl + "/" + $currentPagePath + ".txt" )
+#set ( $jsPath = $siteUrl + "/registrar/students/before-you-enroll/transfer-credit/guided-pathways/ts-tables-custom.js" )
+## the published page uses the CSV(.txt) output to create the table via ts-tables.js
+[system-view:external]
+<style>
+    .form-label {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333
+    }
+
+    @media (min-width: 801px) {
+        .search-container {
+            display: flex;
+            flex-direction: row !important;
+            justify-content: space-between;
+        }
+    
+        .search-container form {
+            flex: 1;
+        }
+
+        .or-line-container {
+            flex-direction: column;
+            padding: 1rem;
+            padding-top: 1.5rem;
+        }
+        
+        .line-separator {
+            border-left: 2px solid #c4c4c4;
+            height: 50%;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+    
+    .search-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #search-mainGuidedPathways-unoDegree, .form-control-dp {
+        display: block;
+        width: 100%;
+        min-width: 100%;
+        align-items: center;
+        padding: .3rem .85rem .3rem .85rem;
+        font-size: calc(0.7975rem + 0.27vw);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--bs-body-color);
+        appearance: none;
+        background-color: #f2f2f2;
+        background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+        background-repeat: no-repeat;
+        background-position: right .85rem center;
+        background-size: 16px 12px;
+        border: var(--bs-border-width) solid #f2f2f2;
+        border-radius: var(--bs-border-radius);
+        box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    }
+
+    #LHS_div.form-item, #RHS_div.form-item {
+        width: 100%;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: .3rem 2.55rem .3rem .85rem;
+        font-size: calc(0.7975rem + 0.27vw);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--bs-body-color);
+        appearance: none;
+        background-color: #f2f2f2;
+        background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+        background-repeat: no-repeat;
+        background-position: right .85rem center;
+        background-size: 16px 12px;
+        border: var(--bs-border-width) solid #f2f2f2;
+        border-radius: var(--bs-border-radius);
+        box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    }
+
+    #GuidedPathways-dropDown, #areaOfStudyDyn, #ccDegreeDyn, .form-select-gp {
+        --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23333%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
+        display: block;
+        width: 100%;
+        min-width: 100%;
+        padding: .3rem .85rem .3rem .85rem;
+        font-size: calc(0.7975rem + 0.27vw);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--bs-body-color);
+        appearance: none;
+        background-color: #f2f2f2;
+        background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+        background-repeat: no-repeat;
+        background-position: right .85rem center;
+        background-size: 16px 12px;
+        border: var(--bs-border-width) solid #f2f2f2;
+        border-radius: var(--bs-border-radius);
+        box-shadow: .05rem .05rem .1rem rgba(10, 10, 10, .4);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    }
+
+    @media (max-width: 800px) {
+        .form-select-hstack {
+            width: 100%;
+        }
+
+        .or-line-container {
+            display: flex;
+            flex-direction: row;
+            padding: 1rem;
+            padding-top: 1.5rem;
+        }
+
+        .line-separator {
+            border-top: 2px solid #c4c4c4;
+            width: 100%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .form-select-hstack {
+        --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23333%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
+        display: block;
+        /* min-width: 300px;
+        max-width: 300px; */
+        width:100%;
+        padding: .3rem 2.55rem .3rem .85rem;
+        font-size: calc(0.7975rem + 0.27vw);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--bs-body-color);
+        appearance: none;
+        background-color: #f2f2f2;
+        background-image: var(--bs-form-select-bg-img),var(--bs-form-select-bg-icon, none);
+        background-repeat: no-repeat;
+        background-position: right .85rem center;
+        background-size: 16px 12px;
+        border: var(--bs-border-width) solid #f2f2f2;
+        border-radius: var(--bs-border-radius);
+        box-shadow: .05rem .05rem .1rem rgba(10,10,10,.4);
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    }
+
+    #search-mainGuidedPathways-unoDegree:disabled {
+        background-color: #e1e1e1;
+        color: grey;
+    }
+
+    [data-bs-theme=dark] #search-mainGuidedPathways-unoDegree {
+        background-color: #333333;
+        color: #f2f2f2;
+    }
+
+    [data-bs-theme=dark] #search-mainGuidedPathways-unoDegree:disabled {
+        background-color: #555555;
+        color: #f2f2f2;
+    }
+
+    #GuidedPathways-dropDown:disabled,
+    #areaOfStudyDyn:disabled,
+    #ccDegreeDyn:disabled {
+        background-color: #e1e1e1;
+        color: grey;
+        
+    }
+
+    [data-bs-theme=dark] #GuidedPathways-dropDown,
+    [data-bs-theme=dark] #areaOfStudyDyn,
+    [data-bs-theme=dark] #ccDegreeDyn {
+        background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 100% 50%;
+        background-color: #333333;
+        color: #f2f2f2;
+        
+    }
+
+    [data-bs-theme=dark] #GuidedPathways-dropDown:disabled,
+    [data-bs-theme=dark] #areaOfStudyDyn:disabled,
+    [data-bs-theme=dark] #ccDegreeDyn:disabled {
+        background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 100% 50%;
+        background-color: #555555;
+        color: darkgrey;
+        
+    }
+
+    .or-text{
+        padding: 0.25rem;
+    }
+
+</style>
+
+<!-- BEGIN: Carousel -->
+<div class="carousel slide mb-5" data-bs-ride="carousel" id="slider">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/campus_1.jpg" class="d-block w-100" 
+                alt="People sit in the Pep Bowl on campus at the University of Nebraska at Omaha in Omaha, Nebraska">
+        </div>
+        <div class="carousel-item">
+            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/aerial.jpg" class="d-block w-100" 
+                alt="Aerial image of University of Nebraska at Omaha in Omaha, Nebraska">
+        </div>
+        <div class="carousel-item">
+            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/durango_1.jpg" class="d-block w-100"
+                alt="Durango celebrates Valentine’s Day with UNO students on Dodge campus">
+        </div>
+        <div class="carousel-item">
+            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/library.jpg" class="d-block w-100"
+                alt="Mary Odette Palafox, a UNO biology major, and her younger sister, Mary Jemarice Palafox, a UNO computer science major, study on Dodge Campus">
+        </div>
+        <div class="carousel-item">
+            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/durango_2.jpg" class="d-block w-100" 
+                alt="Durango standing in front of the H&amp;K building at the University of Nebraska at Omaha in Omaha">
+        </div>
+        <div class="carousel-item">
+            <img src="https://dev.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/media/commencement.jpg" class="d-block w-100" 
+                alt="UNO graduates received their degrees during the May Commencement at Baxter Arena for the University of Nebraska Omaha">
+        </div>
+    </div>
+</div>
+<!-- END: Carousel -->
+
+<div class="card shadow p-4 p-sm-2 mx-auto my-4" id="search-anchor">
+    <template data-GuidedPathways="rowTemplate">
+        <tr></tr>
+    </template>
+    <template data-GuidedPathways="itemTemplate">
+        <td></td>
+    </template>
+    <template data-GuidedPathways="colTemplate">
+        <th class="align-middle" scope="col" style="cursor: pointer" tabindex="0">
+            <div class="d-flex align-items-center">
+                <span></span>
+                <i class="bi bi-caret-up ms-2"></i>
+                <i class="bi bi-caret-down ms-n1"></i>
+            </div>
+        </th>
+    </template>
+    <template data-GuidedPathways="paginationTemplate">
+        <li class="page-item">
+            <a class="page-link" role="button" style="margin-left: -1px; border-radius: 0" tabindex="0">
+                <span></span>
+            </a>
+        </li>
+    </template>
+    <div class="d-flex p-sm-4 mb-4">
+        <div class="search-container">
+            <!-- <div class="col-lg-5 pe-lg-25 form-item"> -->
+            <form id="guidedPathwaysLHS"> <!-- Left side form start -->
+                <div id="LHS_div" class="col-lg-30 pe-lg-25 form-item">
+                    <label for="areaid" class="form-label">Community/Tribal College</label>
+                    <select class="form-select-gp" id="GuidedPathways-dropDown" name="GuidedPathways-dropDown" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS', clear=true); TableGuidedPathways.formDynamicSearch(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                        <option selected="true" value="All">All</option>
+                        <option value="Central Community College">Central Community College</option>
+                        <option value="Iowa Western Community College">Iowa Western Community College</option>
+                        <option value="Little Priest Tribal College">Little Priest Tribal College</option>
+                        <option value="Metropolitan Community College">Metropolitan Community College</option>
+                        <option value="Mid-Plains Community College">Mid-Plains Community College</option>
+                        <option value="Nebraska Indian Community College">Nebraska Indian Community College</option>
+                        <option value="Northeast Community College">Northeast Community College</option>
+                        <option value="Southeast Community College">Southeast Community College</option>
+                        <option value="Wayne State College">Wayne State College</option>
+                        <option value="Western Nebraska Community College">Western Nebraska Community College</option>
+                    </select>
+
+                    <label for="areaid" class="form-label">Area of Study</label>
+                    <select class="form-select-gp" id="areaOfStudyDyn" name="search-mainGuidedPathways-areaOfStudy" tableref="Major (Concentration)" type="text" oninput="searchTable = TableGuidedPathways.formSearch('guidedPathwaysLHS'); TableGuidedPathways.formDynamicSearch(['areaOfStudyDyn', 'ccDegreeDyn'], searchTable); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')">
+                        <option selected="true" value="All">All</option>
+                    </select>
+
+                    <label for="areaid" class="form-label">CC Degree</label>
+                    <select class="form-select-gp" id="ccDegreeDyn" name="search-mainGuidedPathways-ccDegree" tableref="Community College Degree" oninput="TableGuidedPathways.formSearch('guidedPathwaysLHS'); customTables.checkDropdownInput(['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'], 'RHS_Div', 'search-mainGuidedPathways-unoDegree')" placeholder="Epic Stoyle">
+                        <option selected="true" value="All">All</option>
+                    </select>
+
+                    <!-- <input class="btn btn-light" type="submit" value="Search" onclick="TableGuidedPathways.formSearch(event, 'guidedPathwaysLHS')"> -->
+                </div>
+
+            </form> <!-- Left side form end -->
+
+            <div class="or-line-container">
+                <div class="line-separator"></div>
+                <div class="or-text">OR</div>
+                <div class="line-separator"></div>
+            </div>
+
+            <form id="guidedPathwaysRHS">
+                <div id="RHS_Div" class="col-lg-30 pe-lg-25 form-item">
+                    <label for="areaid" class="form-label">UNO Degree</label>
+                    <input class="form-control-gp" dir="auto" id="search-mainGuidedPathways-unoDegree" name="search-mainGuidedPathways-unoDegree" oninput="TableGuidedPathways.search(event); customTables.checkTextboxInput('search-mainGuidedPathways-unoDegree', 'LHS_div', ['GuidedPathways-dropDown', 'areaOfStudyDyn', 'ccDegreeDyn'])" placeholder="Search UNO Degree" type="text"/>
+
+                    <!-- <input class="btn btn-light" type="submit" value="Search"> -->
+                </div>
+            </form>
+            <!-- </div>  -->
+        </div> <!-- End of first row -->
+
+        <!-- Line separator -->
+        <div class="row">
+
+        </div> <!-- End of second row -->
+    </div>
+
+    <!-- Top Navigation -->
+    <!-- Table -->
+    <!-- Table Header -->
+    <div class="table-responsive my-2">
+        <table class="table table-bordered table-striped align-middle" id="GuidedPathways">
+            <thead data-GuidedPathways="thead"></thead>
+
+            <tbody data-GuidedPathways="tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="d-sm-flex justify-content-center my-3">
+        <!-- Bottom navigation -->
+        <div class="d-lg-flex flex-wrap align-items-center justify-content-between">
+            <div class="d-flex order-2 align-items-center justify-content-center mb-4">
+                <p class="pe-3 m-0 me-3" data-GuidedPathways="entries" id="entries"></p>
+                <label id="itemsPerPageGuidedPathways" class="form-label text-end m-0 me-2">results per
+                    page</label>
+                <select name="itemsPerPageGuidedPathways" class="form-select form-select-sm py-2" aria-labelledby="itemsPerPageGuidedPathways" onchange="TableGuidedPathways.page.reload(event);">
+                    <option value="10">10</option>
+                    <option value="25" selected="selected">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="-1">All</option>
+                </select>
+            </div>
+            <nav aria-label="Pagination Navigation" class="order-1" role="navigation">
+                <ul class="pagination d-flex flex-nowrap justify-content-center ps-0 mb-4" data-GuidedPathways="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+    <script src="${jsPath}"></script>
+    <!-- Change script to call .init() instead for production -->
+    <script>
+        const TableGuidedPathways = new customTables.GuidedPathwaysTable(-1, 'data-GuidedPathways', 'TableGuidedPathways', displayOnStart = true);
+        // Provide the source JSON file or PHP url that returns JSON
+        TableGuidedPathways.init('${includePath}');
+    </script>
+</div>
+[/system-view:external]
+
+[system-view:internal]
+## the CMS page uses the guided-pathways index block to create the table
+<p class="alert alert-warning"><strong>NOTE:</strong> The sort, search and filter functions will appear on the published page only.</p>
+<table cellspacing="0" class="table table-striped table-bordered align-middle bg-white mb-5" id="datatable">
+    <thead class="align-middle">
+        <tr>
+            <th>
+                <h5 class="text-white">Major (Concentration)</h5>
+            </th>
+            <th>
+                <h5 class="text-white">Community College</h5>
+            </th>
+            <th>
+                <h5 class="text-white">Guided Pathway</h5>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        #set ( $i = 0 )
+        #set ( $folders = $_XPathTool.selectNodes($contentRoot, "system-folder") )
+        #foreach ( $folder in $folders )
+            #set ( $college = $_EscapeTool.xml($folder.getChild("title").value) )
+            #set ( $pages = $_XPathTool.selectNodes($folder, "system-page[name != 'index']") )
+            #foreach ( $page in $pages )
+                #if ( $page.getChild("display-name") )
+                    #set ( $name = $_EscapeTool.xml($page.getChild("display-name").value) )
+                #elseif ( $page.getChild("title") )
+                    #set ( $name = $_EscapeTool.xml($page.getChild("title").value) )
+                #end
+                #set ( $checkName = $_RegexTool.compile(".*Guided Pathway").matches(".*Guided Pathway", $name) )
+                #if ( $checkName )
+                    #set ( $i = $i + 1 )
+                    #set ( $link = $_EscapeTool.xml($page.getChild("link").value) )
+                    #set ( $splitName = $name.split('Guided Pathway') )
+                    <tr>
+                        <td>$splitName[0]</td>
+                        <td>$college</td>
+                        <td>
+                            <a href="${link}" class="lh-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sign-turn-slight-right-fill mx-2" viewBox="0 0 16 16">
+                                    <path d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435Zm1.385 6.547.8 1.386a.25.25 0 0 0 .451-.039l1.06-2.882a.25.25 0 0 0-.192-.333l-3.026-.523a.25.25 0 0 0-.26.371l.667 1.154-.621.373A2.5 2.5 0 0 0 6 8.632V11h1V8.632a1.5 1.5 0 0 1 .728-1.286l.607-.364Z" />
+                                </svg>
+                                view
+                            </a>
+                        </td>
+                    </tr>
+                #end
+            #end
+        #end
+    </tbody>
+</table>
+[/system-view:internal]
