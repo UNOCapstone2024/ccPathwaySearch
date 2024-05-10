@@ -539,7 +539,7 @@ $configs = include('config.php');
                         <div class="row">
                             <aside id="aside-primary"></aside>
                             <div id="main-copy">
-
+                                <!-- .vm start -->
                                 <style>
                                     .form-label {
                                         font-size: 16px;
@@ -917,7 +917,7 @@ $configs = include('config.php');
                                         TableGuidedPathways.init('<?php echo $configs['initPath'] ?>');
                                     </script>
                                 </div>
-
+                                <!-- .vm end-->
 
                                 <!-- Content After Table -->
                                 <div class="row">

@@ -46,6 +46,15 @@ npm install -g typedoc
 npx typedoc --tsconfig src/guided_pathways/tsconfig.json --name ccPathwaySearch src/guided_pathways/src/index.ts 
 ```
 
+### Deployment
+Deyployment of the Guided Pathways project is mostly a black box. However, during the course of development, we had contact with a developer working for UNO and were thus able to make deployments.
+
+The process for doing so is as follows...
+1. Compile `guided_pathways` modules into JavaScript by running `webpack` within the `src/guided_pathways` directory.
+2. Move styles and necessary HTML into `src/deploy.vm`
+    - For this project, copy the HTML in between the `.vm start` and `.vm end` comments within `src/index.php`, into the `src/deploy.vm` file within the `[system-view:external]` section
+3. Provide compiled JavaScript file and .map file (produced by webpack) along with the `deploy.vm` file to an administrator. They will to be able to actually deploy it.
+
 ## Release Notes
 Include a section called, "Release notes" - explain what is working in this submission (add explanation if this is not consistent with the milestone as described in the Project Plan)
 
