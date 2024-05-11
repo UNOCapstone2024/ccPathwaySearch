@@ -14,12 +14,13 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
+        self.host = "http://localhost:8000/"
     
 
 #--------------------------------------------------------Search Functions-----------------------------------------------------------------------
     def test_central_c_c_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Central Community College")
         driver.find_element("xpath", "//option[@value='Central Community College']").click()
@@ -45,7 +46,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_iowa_western_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Iowa Western Community College")
         driver.find_element("xpath", "//option[@value='Iowa Western Community College']").click()
@@ -72,7 +73,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_little_priest_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Little Priest Tribal College")
         driver.find_element("xpath", "//option[@value='Little Priest Tribal College']").click()
@@ -98,7 +99,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_little_priest_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Little Priest Tribal College")
         driver.find_element("xpath", "//option[@value='Little Priest Tribal College']").click()
@@ -124,7 +125,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_metro_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Metropolitan Community College")
         driver.find_element("xpath", "//option[@value='Metropolitan Community College']").click()
@@ -159,7 +160,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_mid_plains_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Mid-Plains Community College")
         driver.find_element("xpath", "//option[@value='Mid-Plains Community College']").click()
@@ -185,7 +186,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_northeast_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Northeast Community College")
         driver.find_element("xpath", "//option[@value='Northeast Community College']").click()
@@ -212,7 +213,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_nebraska_indian_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Nebraska Indian Community College")
         driver.find_element("xpath", "//option[@value='Nebraska Indian Community College']").click()
@@ -239,7 +240,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_southeast_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Southeast Community College")
         driver.find_element("xpath", "//option[@value='Southeast Community College']").click()
@@ -265,7 +266,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_western_nebraska_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Western Nebraska Community College")
         driver.find_element("xpath", "//option[@value='Western Nebraska Community College']").click()
@@ -291,7 +292,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_wayne_state_search(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Wayne State College")
         driver.find_element("xpath", "//option[@value='Wayne State College']").click()
@@ -318,7 +319,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
     def test_dropdown_area_of_study(self):
         message = "test_dropdown_area_of_study_disable failed"
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Wayne State College")
         driver.find_element("xpath", "//option[@value='Wayne State College']").click()
@@ -360,7 +361,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
     def test_dropdown_CC_Degree(self):
         message = "test_dropdown_CC_Degree_disable failed"
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Wayne State College")
         driver.find_element("xpath", "//option[@value='Wayne State College']").click()
@@ -388,7 +389,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
     
     def test_textbox_theatre(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
 
         driver.find_element(value = "search-mainGuidedPathways-unoDegree").click()
         textbox = driver.find_element(value = "search-mainGuidedPathways-unoDegree")
@@ -424,7 +425,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
     def test_dropdown_CC_disable(self):
         message = "test_dropdown_CC_disable failed"
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "GuidedPathways-dropDown").click()
         Select(driver.find_element(value = "GuidedPathways-dropDown")).select_by_visible_text("Central Community College")
         driver.find_element("xpath", "//option[@value='Central Community College']").click()
@@ -434,7 +435,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
     def test_dropdown_area_of_study_disable(self):
         message = "test_dropdown_area_of_study_disable failed"
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "areaOfStudyDyn").click()
         Select(driver.find_element(value = "areaOfStudyDyn")).select_by_visible_text("Biology")
         driver.find_element("xpath", "//option[@value='Biology']").click()
@@ -444,7 +445,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
     def test_dropdown_CC_Degree_disable(self):
         message = "test_dropdown_CC_Degree_disable failed"
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
         driver.find_element(value = "ccDegreeDyn").click()
         Select(driver.find_element(value = "ccDegreeDyn")).select_by_visible_text("MCC L.A.T.A.A. (Aviation focus)")
         driver.find_element("xpath", "//option[@value='MCC L.A.T.A.A. (Aviation focus)']").click()
@@ -453,7 +454,7 @@ class Guided_Pathways_Unit_Tests(unittest.TestCase):
 
     def test_textbox_disable(self):
         driver = self.driver
-        driver.get("http://localhost:8000/")
+        driver.get(self.host)
 
         driver.find_element(value = "search-mainGuidedPathways-unoDegree").click()
         textbox = driver.find_element(value = "search-mainGuidedPathways-unoDegree")
