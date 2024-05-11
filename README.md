@@ -58,17 +58,26 @@ The process for doing so is as follows...
 ## Release Notes
 Include a section called, "Release notes" - explain what is working in this submission (add explanation if this is not consistent with the milestone as described in the Project Plan)
 
-The project has met all of the goals for milestone two except the mobile design. All other enhancements have been met as of March 21st
+### m1
+The basis for stacked search TypeScript modifications complete. Testing has begun.
+
+### m2
+The project has met all of the goals for milestone two except the mobile design. All other enhancements have been met as of March 21st. Basically, initially proposed enchancements implemented
+
+### m3
+Responsive design basis set in place. Carousel mentioned in meetings but not yet implemented. Support for dark-mode.
+
+### m4
+Responsive design finished, carousel implemented but not deployed, basis for deployment strategy set in place and a few test deploys have taken place.
+
+### m5
+All testing complete, all features in scope complete, successful dev.unomaha deploy.
+
+### SEE THE GITHUB RELEASES FOR MORE DETAILS PER RELEASE
 
 0.1.0 - Deployment testing. Forms working, but lacks responseive design and input blocking
 0.1.1 - Forms working, responsive design working, and input blocking.
 0.1.2 - Form styling done + final responsive design styling + carousel + dark mode
 
 ## Alternative branches
-- feature-static-webpage
-    - Branch was used as a testing ground for figuring out the structure of the site, work was taken from here and used in this branch.
-    - Code will not be used at this time
-- develop
-    - Used as a merge point for all feature-* branches
-- main
-    - Used for completed, fully functional versions of the site
+- All other branches are feature branches contributing to `main`
