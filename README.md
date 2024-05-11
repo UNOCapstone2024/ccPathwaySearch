@@ -55,6 +55,17 @@ The process for doing so is as follows...
     - For this project, copy the HTML in between the `.vm start` and `.vm end` comments within `src/index.php`, into the `src/deploy.vm` file within the `[system-view:external]` section
 3. Provide compiled JavaScript file and .map file (produced by webpack) along with the `deploy.vm` file to an administrator. They will to be able to actually deploy it.
 
+### Test Suite
+The guided_pathways_unit_test.py file contains our unit tests. The process for running that file is as follows. If you have already installed Python and Selenium, open a terminal and skip to step 4.
+1) Download Python from Python's website https://www.python.org/downloads/
+2) Open a terminal on your computer.
+3) In the terminal, run `pip install selenium`.
+4) Open guided_pathways_unit_test.py and change the host variable to the the URL of the site you want to test. The default is set to `http://localhost:8000`. To test the production version use `https://www.unomaha.edu/registrar/students/before-you-enroll/transfer-credit/guided-pathways/index.php`.
+5) Run `Python3 guided_pathways_unit_test.py` and wait for the results to show in the terminal.
+
+Note: If more classes are added to a specific selection from an input, the list of expected classes for that input will have to be updated in the Python file as well.
+   
+   
 ## Release Notes
 Include a section called, "Release notes" - explain what is working in this submission (add explanation if this is not consistent with the milestone as described in the Project Plan)
 
